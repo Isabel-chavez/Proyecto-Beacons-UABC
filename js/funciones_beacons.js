@@ -18,7 +18,7 @@ jQuery(function($) {
 		
             // console.log("vamos a validar el form");
             var bandera=validar_formulario();
-			// console.log("bandera: "+bandera);
+			console.log("bandera: "+bandera);
 
 			if(bandera=="true"){
 				console.log("vamos a guardar el nodo");
@@ -29,21 +29,27 @@ jQuery(function($) {
 			
 		});
 
-	  $("#success-alert").hide();
+	/*
+        $( document ).ready(function() {
+            $("#fechaInstalacion").datepicker();
+        });
+   */
+
+/*	  $("#success-alert").hide();
       $("#myWish").click(function showAlert() {
       $("#success-alert").alert();
          window.setTimeout(function () { 
          $("#success-alert").alert('close'); 
       }, 2000);             
    });    
-
-	/*	$("#fechaInstalacion").datepicker({autoclose: true,
+*/
+	$("#fechaInstalacion").datepicker({autoclose: true,
 			todayHighlight: true,
 			todayBtn: "linked",
 			language: "es",
-			format: 'dd-mm-yyyy'
+			format: 'dd/mm/yyyy'
 		   }
-		);*/
+		);
 
 		function validar_formulario()
 		{
@@ -96,8 +102,12 @@ jQuery(function($) {
 
 		function guardarDatosNodo(){
 			
-		    var fechaInsta= $("#fechaInstalacion").val();    // alert("fecha"+fechaInsta);
-			var fechaFormat=cambiarFormatoFecha(fechaInsta); // alert("fecha formateada"+fechaFormat);
+		    var fechaInsta= $("#fechaInstalacion").val();  
+		    console.log("fechaInsta"+fechaInsta); 
+		    // alert("fecha Instalacion:: "+fechaInsta);
+			var fechaFormat=cambiarFormatoFecha(fechaInsta); 
+            console.log("fechaFormateada"+fechaFormat); 
+			// alert("fecha formateada"+fechaFormat);
             $("#fechaFormateada").val(fechaFormat);
 
 
@@ -128,7 +138,11 @@ jQuery(function($) {
 		}
 
        // fecha   dd/m/yyyy
-	   function cambiarFormatoFecha(fecha) {  
+	   function cambiarFormatoFecha(fecha) { 
+	   alert("cambiaremos formato fecha"+fecha); 
+
+	   console.log("fecha"+fecha); 
+
 	    var info = fecha.split('/');
 					
 		return info[2] + '-' + info[1] + '-' + info[0];  // yyyy/mm/dd												

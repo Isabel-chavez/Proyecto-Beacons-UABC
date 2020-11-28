@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Seccion Nodos</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+       
+     $( document ).ready(function() {
+         
+
+        $("#fecha").datepicker({autoclose: true,
+			todayHighlight: true,
+			todayBtn: "linked",
+			language: "es",
+			format: 'dd/mm/yyyy'
+			
+		   }
+		);
+
+		 });
+    </script>
+
+</head>
+<body>
+	<!-- SideBar -->
+	
+	<form method="POST" name="forma">
+        <input type="text" id="fecha" name="fecha" />
+    </form>
+
+	<!--====== Scripts -->
+	<!-- <script src="./js/jquery-3.1.1.min.js"></script>-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<script src="./js/bootstrap.min.js"></script>
+
+
+	<script src="./js/funciones_beacons.js"></script>
+	
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+	
+	<script>
+		$.material.init();
+	</script>
+</body>
+</html>

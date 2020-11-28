@@ -35,13 +35,21 @@
       <input type="text" class="form-control" id="longitud" placeholder="Capture longitud" name="longitud">
       <label class="error" for="latitud" id="lon_error">Debe introducir longitud.</label><br>
     </div>
-
+<!--
     <div class="form-group">
       <label for="latitud">Fecha de Instalación:</label>
       <input type="text" class="form-control" id="fechaInstalacion" placeholder="dd/mm/yyyy" name="fechaInstalacion">
       <input type="type" name="fechaFormateada"  id="fechaFormateada" class="form-control">
       <label class="error" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
     </div>
+-->
+    <div class="input-group date" data-provide="datepicker">
+        <input type="text" id="fechaInstalacion" class="form-control">
+        <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+        </div>
+    </div>
+
 
     <div class="form-group">
       <label for="estado">Estado:</label>
