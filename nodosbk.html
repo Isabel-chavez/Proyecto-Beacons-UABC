@@ -5,25 +5,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	 <link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+	 <link rel="stylesheet" href="./css/beacons.css">
+<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
-
-    <script>
-       
-     $( document ).ready(function() {
-         
-
-        $("#fecha").datepicker({autoclose: true,
-			todayHighlight: true,
-			todayBtn: "linked",
-			language: "es",
-			format: 'dd/mm/yyyy'
-			
-		   }
-		);
-
-		 });
-    </script>
+-->
+  
 </head>
 <body>
 	<!-- SideBar -->
@@ -32,12 +18,12 @@
 		<div class="full-box dashboard-sideBar-ct">
 			<!--SideBar Title -->
 			<div class="full-box text-uppercase text-center text-titles dashboard-sideBar-title">
-				Proyecto Beacons <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
+				UABC Conecta <i class="zmdi zmdi-close btn-menu-dashboard visible-xs"></i>
 			</div>
 			<!-- SideBar User info -->
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
-					<img src="" alt="UserIcon">
+					<img src="./assets/img/logo_200x200.jpg" alt="UserIcon">
 					<figcaption class="text-center text-titles">Bienvenido Administrador</figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
@@ -118,7 +104,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Administracion <small>Nodos</small></h1>
 			</div>
-			<p class="lead">En este panel se podra ver todo lo relacionado a los nodos y su configuracion</p>
+			
 		</div>
 		<div class="container-fluid">
 			<div class="row">
@@ -135,27 +121,30 @@
 									<div class="col-xs-6 col-md-6 col-md-offset-1"> <!-- action="main.php?op=GN&c=N" -->
 									    <form name="form-registro-nodo" id="form-registro-nodo" method="POST" action="">
 
+                                             <input type="hidden" name="fechaFormateada"  id="fechaFormateada" class="form-control">
 									    	<div class="form-group label-floating">
 											  <label class="control-label">Nombre del Nodo</label>
 											  <input name="nombreNodo"  id="nombreNodo" class="form-control" type="text">
-											  <label class="error" for="nombreNodo" id="name_error">Debe introducir nombre del nodo.</label><br><br>
+											  <label class="error uncolor" for="nombreNodo" id="name_error">Debe introducir nombre del nodo.</label><br><br>
 											</div>
 									    	<div class="form-group label-floating">
 											  <label class="control-label">Latitud </label>
 											  <input name="latitud" id="latitud" class="form-control" type="text">
-											  <label class="error" for="latitud" id="lat_error">Debe introducir latitud.</label><br>
+											  <label class="error uncolor" for="latitud" id="lat_error">Debe introducir latitud.</label><br>
 											</div>
 											<div class="form-group label-floating">
 											  <label class="control-label">Longitud</label>
 											  <input name="longitud" id="longitud" class="form-control" type="text">
-											  <label class="error" for="latitud" id="lon_error">Debe introducir longitud.</label><br>
+											  <label class="error uncolor" for="latitud" id="lon_error">Debe introducir longitud.</label><br>
 											</div>
+
 											<div class="form-group label-floating">
-											  <label class="control-label">Fecha de Instalación</label>
-											  <input name="fechaInstalacion"  id="fechaInstalacion">
-											  <label class="error" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
-											  <input type="type" name="fechaFormateada"  id="fechaFormateada" class="form-control">
+											  <label class="control-label">Fecha de Instalación (dd/mm/yyy)</label>
+											  <input name="fechaInstalacion"  id="fechaInstalacion" class="form-control" type="text">
+											  <label class="error uncolor" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
 											</div>
+											
+											
 											<div class="form-group">
 										      <label class="control-label">Status</label>
 										        <select name="estado" id="estado" class="form-control">
@@ -167,11 +156,13 @@
 											<div class="form-group label-floating">
 											  <label class="control-label">Número Máximo de Personas</label>
 											  <input name="numPerson" id="numPerson" class="form-control" type="text">
-											  <label class="error" for="npersonas" id="numpersonas_error">Debe introducir una cantidad de personas</label><br>
+											  <label class="error uncolor" for="npersonas" id="numpersonas_error">Debe introducir una cantidad de personas</label><br>
 											</div>
 
 										    <p class="text-center">
 										    	<button  id="btnGuardar" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i> Guardar</button>
+
+										   
 										    </p>
 									    </form>
 									</div>
@@ -328,9 +319,9 @@
 	<script src="./js/main.js"></script>
 
 	<script src="./js/funciones_beacons.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>  -->
 	<!-- <script src="./js/form-validation-beacons.js"></script>-->
 
 	<script>

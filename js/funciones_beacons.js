@@ -43,6 +43,7 @@ jQuery(function($) {
       }, 2000);             
    });    
 */
+
 	$("#fechaInstalacion").datepicker({autoclose: true,
 			todayHighlight: true,
 			todayBtn: "linked",
@@ -50,6 +51,7 @@ jQuery(function($) {
 			format: 'dd/mm/yyyy'
 		   }
 		);
+
 
 		function validar_formulario()
 		{
@@ -67,30 +69,52 @@ jQuery(function($) {
 			  $("label#name_error").show();
 			  $("input#name").focus();
 			  band="false";
+		    }else{
+		      $("label#name_error").hide();
+			  $("input#name").focus();
+			  band="true";	
 		    }
 
 		     if (latitud == "") {
 			  $("label#lat_error").show();
 			  $("input#name").focus();
 			  band="false";
+		    }else{
+		      $("label#lat_error").hide();
+			  $("input#name").focus();
+			  band="true";	
+
 		    }
 
 		     if (longitud == "") {
 			  $("label#lon_error").show();
 			  $("input#name").focus();
 			  band="false";
+		    }else{
+		      $("label#lon_error").hide();
+			  $("input#name").focus();
+			  band="true";
 		    }
 		      
 		     if (finsta == "") {
 			  $("label#finsta_error").show();
 			  $("input#name").focus();
 			  band="false";
+		    }else{
+		      $("label#finsta_error").hide();
+			  $("input#name").focus();
+			  band="true";
+
 		    }
 
 		     if (numPersonas== "") {
 			  $("label#numpersonas_error").show();
 			  $("input#name").focus();
 			  band="false";
+		    }else{
+		      $("label#numpersonas_error").hide();
+			  $("input#name").focus();
+			  band="true";	
 		    }
 
             
