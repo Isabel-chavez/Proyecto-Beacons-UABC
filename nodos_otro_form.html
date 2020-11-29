@@ -5,12 +5,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/beacons.css">
+ 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="./js/funciones_beacons.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
   
+
 
 </head>
 <body>
@@ -23,25 +24,25 @@
     <div class="form-group">
       <label for="email">Nombre Nodo:</label>
       <input type="email" class="form-control" id="nombreNodo" placeholder="Capture nombre del nodo" name="nombreNodo">
-      <label class="error uncolor" for="nombreNodo" id="name_error">Debe introducir nombre del nodo.</label><br>
+      <label class="error" for="nombreNodo" id="name_error" class="uncolor">Debe introducir nombre del nodo.</label><br>
     </div>
     <div class="form-group">
       <label for="latitud">Latitud:</label>
       <input type="text" class="form-control" id="latitud" placeholder="Capture latitud" name="latitud">
-      <label class="error uncolor" for="latitud" id="lat_error">Debe introducir latitud.</label><br>
+      <label class="error" for="latitud" id="lat_error">Debe introducir latitud.</label><br>
     </div>
 
      <div class="form-group">
       <label for="latitud">Longitud:</label>
       <input type="text" class="form-control" id="longitud" placeholder="Capture longitud" name="longitud">
-      <label class="error uncolor" for="latitud" id="lon_error">Debe introducir longitud.</label><br>
+      <label class="error" for="latitud" id="lon_error">Debe introducir longitud.</label><br>
     </div>
 
     <div class="form-group">
       <label for="latitud">Fecha de Instalación:</label>
       <input type="text" class="form-control" id="fechaInstalacion" placeholder="dd/mm/yyyy" name="fechaInstalacion">
       <input type="hidden" name="fechaFormateada"  id="fechaFormateada" class="form-control">
-      <label class="error uncolor" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
+      <label class="error" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
     </div>
 
     <div class="form-group">
@@ -50,13 +51,13 @@
 			<option>Activo</option>
 			<option>Inactivo</option>
 	  </select>
-	  <label class="error uncolor" for="estado" id="estado_error">Debe introducir longitud.</label><br>
+	  <label class="error" for="estado" id="estado_error">Debe introducir longitud.</label><br>
     </div>
 
     <div class="form-group">
       <label for="latitud">Número Máximo de Personas:</label>
       <input type="text" class="form-control" id="numPerson" placeholder="Capture" name="numPerson">
-      <label class="error uncolor" for="npersonas" id="numpersonas_error">Debe introducir una cantidad de personas</label><br>
+      <label class="error" for="npersonas" id="numpersonas_error">Debe introducir una cantidad de personas</label><br>
     </div>
 
    

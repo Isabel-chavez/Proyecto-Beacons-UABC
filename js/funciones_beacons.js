@@ -108,13 +108,27 @@ jQuery(function($) {
 		    }
 
 		     if (numPersonas== "") {
+		      $("label#noesentero_error").hide();	
 			  $("label#numpersonas_error").show();
+			
 			  $("input#name").focus();
 			  band="false";
 		    }else{
-		      $("label#numpersonas_error").hide();
-			  $("input#name").focus();
-			  band="true";	
+		     
+			  if (isNaN(numPersonas))
+			  {
+			  	//console.log("no es numero");
+			  	$("label#numpersonas_error").hide();
+                $("label#noesentero_error").show();
+			    $("input#noesentero").focus();
+			    band="false";
+
+			  	
+			  }/*else{
+			  	$("label#numpersonas_error").hide();
+			    $("input#name").focus();
+			    band="true";	
+			  }*/
 		    }
 
             
