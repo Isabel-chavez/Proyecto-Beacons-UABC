@@ -13,7 +13,7 @@
 				 <a href="#"><i class="zmdi zmdi-time-interval zmdi-hc-fw"></i> Estadísticas</a>
 			 </li>
 			<li>
-				<a href="form_registro_nodo.php"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Nodos</a>
+				<a href="form_registrar_nodo.php"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Nodos</a>
 			</li>
 			<li>
 				<a href="nodosenmapa.php"><i class="zmdi zmdi-map zmdi-hc-fw"></i> Mapa</a>
