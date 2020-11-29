@@ -89,10 +89,12 @@ jQuery(function($) {
 		     if (longitud == "") {
 			  $("label#lon_error").show();
 			  $("input#name").focus();
+			 
 			  band="false";
 		    }else{
 		      $("label#lon_error").hide();
 			  $("input#name").focus();
+			   console.log("'-5.2'", isCommaDecimalNumber('-5.22'));
 			  band="true";
 		    }
 		      
@@ -113,8 +115,11 @@ jQuery(function($) {
 			
 			  $("input#name").focus();
 			  band="false";
-		    }else{
+		    }
+
+		    else{
 		     
+			  var res=validarEntero(numPersonas);
 			  if (isNaN(numPersonas))
 			  {
 			  	//console.log("no es numero");
@@ -128,14 +133,34 @@ jQuery(function($) {
 			  	$("label#numpersonas_error").hide();
 			    $("input#name").focus();
 			    band="true";	
-			  }*/
-		    }
+			  }
+		    }*/
 
             
 		    
 		     return band;
 
 		}
+
+
+        function validarEntero(valor){
+        //intento convertir a entero.
+        //si era un entero no le afecta, si no lo era lo intenta convertir
+        var valor = parseInt(valor)
+        var resultado="true";
+        //Compruebo si es un valor numérico
+        if (isNaN(valor)) {
+            //entonces (no es numero) devuelvo el valor cadena vacia
+            return resultado="false";
+        }else{
+            //En caso contrario (Si era un número) devuelvo el valor
+            return resultado;
+            }
+        }
+
+		function isCommaDecimalNumber(value) {
+         return /^-?(?:\d+(?:,\d*)?)$/.test(value);
+        }
 		
 
 		function guardarDatosNodo(){
