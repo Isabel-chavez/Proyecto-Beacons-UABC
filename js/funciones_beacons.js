@@ -1,5 +1,5 @@
 /**
- * solicitudBecas.js   Isabel Chavez
+ * funciones_beacons.js   Isabel Chavez     28 Noviembre 2020
  */
 
 /*
@@ -16,40 +16,21 @@ jQuery(function($) {
 		
             // console.log("vamos a validar el form");
             var bandera=validar_formulario();
-			console.log("bandera: "+bandera);
+			// console.log("bandera validar formulario: "+bandera);
 
 			if(bandera=="true"){
 				console.log("vamos a guardar el nodo");
 				guardarDatosNodo();
-		
+					
 			}
 			
 			
 		});
 
-	/*
-        $( document ).ready(function() {
-            $("#fechaInstalacion").datepicker();
-        });
-   */
 
-/*	  $("#success-alert").hide();
-      $("#myWish").click(function showAlert() {
-      $("#success-alert").alert();
-         window.setTimeout(function () { 
-         $("#success-alert").alert('close'); 
-      }, 2000);             
-   });    
-*/
-
-	$("#fechaInstalacion").datepicker({autoclose: true,
-			todayHighlight: true,
-			todayBtn: "linked",
-			language: "es",
-			format: 'dd/mm/yyyy'
-		   }
-		);
-
+       /*
+       * Se valida el formulario antes de enviar a grabar en la base de datos
+       */
 
 		function validar_formulario()
 		{
@@ -60,40 +41,44 @@ jQuery(function($) {
             var finsta= $("#fechaInstalacion").val();
             var numPersonas= $("#numPerson").val();
 
-            var band="";
+            var band1="";
+            var band2="";
+            var band3="";
+            var band4="";
+            var band5="";
+            var resultado="";
 
 		   //Validamos el campo nombre, simplemente miramos que no esté vacío
 		    if (name == "") {
 			  $("label#name_error").show();
 			  $("input#name").focus();
-			  band="false";
+			  band1="false";
 		    }else{
 		      $("label#name_error").hide();
 			  $("input#name").focus();
-			  band="true";	
+			  band1="true";	
 		    }
 
 		     if (latitud == "") {
 			  $("label#lat_error").show();
 			  $("input#name").focus();
-			  band="false";
-		    }else{
-		     // $("label#lat_error").hide();
-			 // $("input#name").focus();
-			 //  band="true";	
+			  band2="false";
+		    }
 
-
-			   var res=validateDecimal(latitud); console.log("latitud es decimal..?"+res);
-		     	if(res==false){
+		    if(latitud!= ""){
+		    
+			   var res=validateDecimal(latitud); // console.log("latitud es decimal..?"+res);
+		     	if(res=="false"){
 			  		console.log("res:"+res);
 			  	   $("label#lat_error").show();	
 			       $("input#name").focus();
-			       band="false";
+			       band2="false";
 			    
 			    }else{
 			       $("label#lat_error").hide();	
 			       $("input#name").focus();
-			       band="true";
+			       band2="true";
+			       
 			    }
 
 		    }
@@ -102,62 +87,74 @@ jQuery(function($) {
 			  $("label#lon_error").show();
 			  $("input#name").focus();
 			 
-			  band="false";
+			  band3="false";
 		    }else{
-		     var res=validateDecimal(longitud); console.log("longitud es decimal..?"+res);
-		     	if(res==false){
+		        var res=validateDecimal(longitud); // console.log("longitud es decimal..?"+res);
+		     	if(res=="false"){
 			  		console.log("res:"+res);
-			  	   $("label#lon_error").hide();
-			  	  
-			       $("input#name").focus();
-			       band="false";
+			  	   $("label#lon_error").show();
+			  	   $("input#name").focus();
+			       band3="false";
 			    
+			    }else{
+			      
+			       $("label#lon_error").hide();
+			  	   $("input#name").focus();
+			       band3="true";	
 			    }
 		    }
 		      
 		     if (finsta == "") {
 			  $("label#finsta_error").show();
 			  $("input#name").focus();
-			  band="false";
+			  band4="false";
 		    }else{
 		      $("label#finsta_error").hide();
 			  $("input#name").focus();
-			  band="true";
+			  band4="true";
 
 		    }
 
 		     if (numPersonas== "") {
 		      $("label#noesentero_error").hide();	
 			  $("label#numpersonas_error").show();
-			
-			  $("input#name").focus();
-			  band="false";
+		      $("input#name").focus();
+			  band5="false";
 		    }else{
 			  	
-			  	var res=validar_entero(numPersonas); console.log("es entero..?"+res);
-			  	if(res==false){
+			  	var res=validar_entero(numPersonas);   // console.log("es entero..?"+res);
+			  	if(res=="false"){
 			  		console.log("res:"+res);
 			  	   $("label#numpersonas_error").hide();
 			  	   $("label#noesentero_error").show();	
 			       $("input#name").focus();
-			       band="false";
+			       band5="false";
 			    
-			    }/*else{
+			    }else{
 			    	
-			      band="true";	
-			      $("label#noesentero_error").show
-			      $("input#name").focus();
-			    }*/	
+			        band5="true";	
+			        $("label#noesentero_error").hide();
+			        $("input#name").focus();
+			       }
 			  }
 
+            console.log("band1="+band1+" "+"band2="+band2+" "+"band3:"+band3+" "+"band4="+band4+" "+"band5:"+band5);
+            if(band1=="true" && band2=="true" && band3=="true" && band4=="true" && band5=="true"){
+            	resultado="true";
+            	// alert("ES TRUE");
 
-            
+            }else{
+            	// alert("ES FALSE");
+            	resultado="false";
+            }
 		    
-		     return band;
+		     return resultado;
 
 		}
 
-
+      /*
+      *  Se valida que el dato capturado sea un valor númerico
+      */
       function validar_entero(numero){
       	
       	var dato_a_comprobar = "1234";
@@ -173,6 +170,9 @@ jQuery(function($) {
           return band;
        }
 
+      /*
+      *  Se valida que el dato capturado sea un valor decimal positivo o negativo
+      */
        function validateDecimal(valor) {
        var re = /^-?\d*\.?\d*$/;
        // var otra_validacion=(^-?0\.[0-9]*[1-9]+[0-9]*$)|(^-?[1-9]+[0-9]*((\.[0-9]*[1-9]+[0-9]*$)|(\.[0-9]+)))|(^-?[1-9]+[0-9]*$)|(^0$){1}; 
@@ -188,7 +188,9 @@ jQuery(function($) {
       }
         
       
-
+       /*
+       *  Se envian los datos a la base de datos para ser almacenados
+       */
 		function guardarDatosNodo(){
 			
 		    var fechaInsta= $("#fechaInstalacion").val();  
@@ -226,11 +228,15 @@ jQuery(function($) {
 
 		}
 
-       // fecha   dd/m/yyyy
-	   function cambiarFormatoFecha(fecha) { 
-	   alert("cambiaremos formato fecha"+fecha); 
 
-	   console.log("fecha"+fecha); 
+       /*
+         fecha: dd/mm/yyyy
+       *  Se cambia el formato de la fecha porque en la base de datos se debe guardar como yyyy/mm/dd
+       */
+	   function cambiarFormatoFecha(fecha) { 
+	   // alert("cambiaremos formato fecha"+fecha); 
+
+	    console.log("fecha"+fecha); 
 
 	    var info = fecha.split('/');
 					
@@ -238,9 +244,7 @@ jQuery(function($) {
 				
 				
 	    }
-	 
-		
-		
+	 	
 			
 	});
 
