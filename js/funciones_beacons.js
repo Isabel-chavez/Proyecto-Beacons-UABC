@@ -214,9 +214,11 @@ jQuery(function($) {
 		    	
 		      	if(result==1){
 		     		// alert("Los datos fueron alamcenados correctamente::: "+result);
-		     		alert("Los datos fueron alamcenados correctamente");
+		     		// alert("Los datos fueron alamcenados correctamente");
 		     		// $("#success-alert").show();
-		       		// console.log("se guardaron exitosamente los datos");   
+		       		// console.log("se guardaron exitosamente los datos");  
+		       		$("#Aviso-Exito").modal("show"); 
+
 		    	 }else{
 		     		alert("Los datos NO fueron almacenados correctamente= "+result);
 		    		 }
@@ -244,6 +246,12 @@ jQuery(function($) {
 				
 				
 	    }
+
+	    $("#bnt-cuenta-modal").click(function(e){
+			e.preventDefault();       
+			$("#cuenta-modal").modal("show");
+				
+		}); 
 	 	
 			
 	});

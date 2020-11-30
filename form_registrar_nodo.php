@@ -270,17 +270,36 @@
 		</div>
 	</section>
 
-	<!-- Dialog help -->
-	<div class="modal fade" tabindex="-1" role="dialog" id="Dialog-Help">
+	<!-- Dialog Aviso se guardo exitosamente-->
+	<div class="modal fade" tabindex="-1" role="dialog" id="Aviso-Exito">
 	  	<div class="modal-dialog" role="document">
 		    <div class="modal-content">
 			    <div class="modal-header">
 			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			    	<h4 class="modal-title">Ayuda</h4>
+			    	<h4 class="modal-title">Aviso</h4>
 			    </div>
 			    <div class="modal-body">
 			        <p>
-			        	Si requieres apoyo te puedes ir al menu de ayuda y llenar el formulario y en breve nos contactaremos contigo.
+			        	La información se registro exitosamente..
+			        </p>
+			    </div>
+		      	<div class="modal-footer">
+		        	<button type="button" class="btn btn-primary btn-raised" data-dismiss="modal"><i class="zmdi zmdi-thumb-up"></i> Ok</button>
+		      	</div>
+		    </div>
+	  	</div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="Aviso-Sinexito">
+	  	<div class="modal-dialog" role="document">
+		    <div class="modal-content">
+			    <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    	<h4 class="modal-title">Aviso</h4>
+			    </div>
+			    <div class="modal-body">
+			        <p>
+			        	Lo sentimos no se guardo la información, intente de nuevo
 			        </p>
 			    </div>
 		      	<div class="modal-footer">

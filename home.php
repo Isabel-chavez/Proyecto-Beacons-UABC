@@ -70,7 +70,7 @@
 				<li>
 					<a href="#!" class="btn-Notifications-area">
 						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">3</span>
+						<span class="badge">25</span>
 					</a>
 				</li>
 				<li>
@@ -210,7 +210,7 @@
 			    </div>
 			    <div class="modal-body">
 			        <p>
-			        	Si requieres apoyo te puedes ir al menu  ayuda y llenar el formulario y en breve nos contactaremos contigo.
+			        	ESTA ES LA VENTANA DE AVISO
 			        </p>
 			    </div>
 		      	<div class="modal-footer">
