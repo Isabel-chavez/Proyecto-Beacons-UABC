@@ -7,8 +7,6 @@
  * 
  */
 jQuery(function($) {
-
-
 	
 		$('.error').hide();
 
@@ -62,7 +60,7 @@ jQuery(function($) {
             var finsta= $("#fechaInstalacion").val();
             var numPersonas= $("#numPerson").val();
 
-            var band="true";
+            var band="";
 
 		   //Validamos el campo nombre, simplemente miramos que no esté vacío
 		    if (name == "") {
@@ -80,9 +78,23 @@ jQuery(function($) {
 			  $("input#name").focus();
 			  band="false";
 		    }else{
-		      $("label#lat_error").hide();
-			  $("input#name").focus();
-			  band="true";	
+		     // $("label#lat_error").hide();
+			 // $("input#name").focus();
+			 //  band="true";	
+
+
+			   var res=validateDecimal(latitud); console.log("latitud es decimal..?"+res);
+		     	if(res==false){
+			  		console.log("res:"+res);
+			  	   $("label#lat_error").show();	
+			       $("input#name").focus();
+			       band="false";
+			    
+			    }else{
+			       $("label#lat_error").hide();	
+			       $("input#name").focus();
+			       band="true";
+			    }
 
 		    }
 
@@ -92,10 +104,15 @@ jQuery(function($) {
 			 
 			  band="false";
 		    }else{
-		      $("label#lon_error").hide();
-			  $("input#name").focus();
-			   console.log("'-5.2'", isCommaDecimalNumber('-5.22'));
-			  band="true";
+		     var res=validateDecimal(longitud); console.log("longitud es decimal..?"+res);
+		     	if(res==false){
+			  		console.log("res:"+res);
+			  	   $("label#lon_error").hide();
+			  	  
+			       $("input#name").focus();
+			       band="false";
+			    
+			    }
 		    }
 		      
 		     if (finsta == "") {
@@ -116,23 +133,24 @@ jQuery(function($) {
 			  $("input#name").focus();
 			  band="false";
 		    }else{
-			  	$("label#numpersonas_error").hide();
-			    $("input#name").focus();
-			    band="true";	
+			  	
+			  	var res=validar_entero(numPersonas); console.log("es entero..?"+res);
+			  	if(res==false){
+			  		console.log("res:"+res);
+			  	   $("label#numpersonas_error").hide();
+			  	   $("label#noesentero_error").show();	
+			       $("input#name").focus();
+			       band="false";
+			    
+			    }/*else{
+			    	
+			      band="true";	
+			      $("label#noesentero_error").show
+			      $("input#name").focus();
+			    }*/	
 			  }
 
-/*		    
-			  var res=validarEntero(numPersonas);
-			  if (res=="false")
-			  {
-			  	//console.log("no es numero");
-			  	$("label#numpersonas_error").hide();
-                $("label#noesentero_error").show();
-			    $("input#noesentero").focus();
-			    band="false";		  	
-			  }
-		    
-*/
+
             
 		    
 		     return band;
@@ -140,25 +158,36 @@ jQuery(function($) {
 		}
 
 
-        function validarEntero(valor){
-        //intento convertir a entero.
-        //si era un entero no le afecta, si no lo era lo intenta convertir
-        var valor = parseInt(valor)
-        var resultado="true";
-        //Compruebo si es un valor numérico
-        if (isNaN(valor)) {
-            //entonces (no es numero) devuelvo el valor cadena vacia
-            return resultado="false";
-        }else{
-            //En caso contrario (Si era un número) devuelvo el valor
-            return resultado;
-            }
-        }
+      function validar_entero(numero){
+      	
+      	var dato_a_comprobar = "1234";
+        var valoresAceptados = /^[0-9]+$/;
+        var band="";
+        if (numero.match(valoresAceptados)){
+          //alert ("Es numérico");
+          band="true";
+        } else {
+         //alert ("No es numérico");
+          band="false";
+          }
+          return band;
+       }
 
-		function isCommaDecimalNumber(value) {
-         return /^-?(?:\d+(?:,\d*)?)$/.test(value);
-        }
-		
+       function validateDecimal(valor) {
+       var re = /^-?\d*\.?\d*$/;
+       // var otra_validacion=(^-?0\.[0-9]*[1-9]+[0-9]*$)|(^-?[1-9]+[0-9]*((\.[0-9]*[1-9]+[0-9]*$)|(\.[0-9]+)))|(^-?[1-9]+[0-9]*$)|(^0$){1}; 
+       // var re = ^-?[0-9]\d*(\.\d+)?$\; 
+       if (re.test(valor)) {
+       	 // alert ("Es Decimal");
+         band="true";
+       } else {
+       	 // alert ("No es Decimal");
+         band="false";
+       }
+         return band;
+      }
+        
+      
 
 		function guardarDatosNodo(){
 			

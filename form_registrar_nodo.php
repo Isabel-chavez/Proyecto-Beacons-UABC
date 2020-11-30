@@ -108,12 +108,13 @@
 									    	<div class="form-group label-floating">
 											  <label class="control-label">Latitud </label>
 											  <input name="latitud" id="latitud" class="form-control" type="text">
-											  <label class="error uncolor" for="latitud" id="lat_error">Debe introducir latitud.</label><br>
+											  <label class="error uncolor" for="lat" id="lat_error">Debe introducir latitud .</label>
+											  <label class="error uncolor" for="latitud" id="latitud_error">Dato invalido, intente de nuevo</label><br>
 											</div>
 											<div class="form-group label-floating">
 											  <label class="control-label">Longitud</label>
 											  <input name="longitud" id="longitud" class="form-control" type="text">
-											  <label class="error " for="latitud" id="lon_error">Debe introducir longitud.</label><br>
+											  <label class="error " for="latitud" id="lon_error">Debe introducir longitud valida.</label><br>
 											</div>
 
 											<div class="form-group label-floating">
