@@ -27,6 +27,15 @@ jQuery(function($) {
 			
 		});
 
+        $("#nodos_icon").click(function(e){
+		    e.preventDefault();
+		
+           <a href="form_registrar_nodo.php">
+			
+			
+		});
+		
+
 
        /*
        * Se valida el formulario antes de enviar a grabar en la base de datos

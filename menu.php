@@ -18,11 +18,11 @@
 			<li>
 				<a href="nodosenmapa.php"><i class="zmdi zmdi-map zmdi-hc-fw"></i> Mapa</a>
 			</li>
-			<li>
+			<!--<li>
 				<a href="#"><i class="zmdi zmdi-search zmdi-hc-fw"></i> Búsqueda</a>
-			</li>
+			</li>-->
 			<li>
-			   <a href="ayuda.html"><i class="zmdi zmdi-font zmdi-hc-fw"></i> Ayuda</a>
+			   <a href="#"><i class="zmdi zmdi-font zmdi-hc-fw"></i> Alertas</a>
 			</li>
 		  </ul>
 </li>					

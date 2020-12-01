@@ -93,14 +93,14 @@ body, html{
 	left: 0;
 	z-index: 2;
 	/*background-image: url('../assets/img/sideBar-font.jpg');*/
-	background-color: rgba(0, 0, 0, .77);
+	background-color: #005670;  /* rgba(0, 0, 0, .77); */
 	border-right: 1px solid rgba(255, 255, 255, .4);
 	overflow: hidden;
 }
 .dashboard-sideBar-ct{
 	position: relative;
 	height: 100%;
-	background-color: rgba(0, 0, 0, .77);
+	background-color: #005670; /* rgba(0, 0, 0, .77); */
 	padding: 0 10px;
 	padding-bottom: 30px;
 }
@@ -225,7 +225,7 @@ body, html{
 	outline: none;
 }
 .dashboard-Navbar{
-	background-color: #000;
+	background-color: #005670; /* #000; */
 	overflow: hidden;
 }
 .dashboard-Navbar > ul >li,
