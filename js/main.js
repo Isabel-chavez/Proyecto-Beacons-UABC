@@ -18,8 +18,8 @@ $(document).ready(function(){
 		  	showCancelButton: true,
 		  	confirmButtonColor: '#03A9F4',
 		  	cancelButtonColor: '#F44336',
-		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> Yes, Exit!',
-		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancel!'
+		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> Si, Salir!',
+		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancelar!'
 		}).then(function () {
 			window.location.href="index.html";
 		});
@@ -45,14 +45,14 @@ $(document).ready(function(){
 	});
 	$('.btn-search').on('click', function(){
 		swal({
-		  title: 'What are you looking for?',
+		  title: 'Qué estas buscando?',
 		  confirmButtonText: '<i class="zmdi zmdi-search"></i>  Search',
 		  confirmButtonColor: '#03A9F4',
 		  showCancelButton: true,
 		  cancelButtonColor: '#F44336',
 		  cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> Cancel',
 		  html: '<div class="form-group label-floating">'+
-			  		'<label class="control-label" for="InputSearch">write here</label>'+
+			  		'<label class="control-label" for="InputSearch">escribe aqui</label>'+
 			  		'<input class="form-control" id="InputSearch" type="text">'+
 				'</div>'
 		}).then(function () {
@@ -84,7 +84,7 @@ $("#caja_mapa").click(function(e){
 $("#caja_estadistica").click(function(e){
 		
 		    e.preventDefault();
-			window.location.href="estadistica.php";	
+			window.location.href="estadisticas.html";	
 			
 });
 

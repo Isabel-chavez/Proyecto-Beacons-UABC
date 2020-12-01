@@ -118,7 +118,7 @@
 					<small>Registros</small>
 				</div>
 			</article>
-			<article class="full-box tile">
+			<article class="full-box tile" id="caja_estadistica">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Estadísticas
 				</div>
