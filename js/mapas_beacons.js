@@ -9,14 +9,14 @@ function init(){
 
    // Marcador 1
    var marker = new google.maps.Marker({
-      position: { lat: -12.06244, lng: -77.12272 }, // coodernadas del marcador 1
+      position: { lat: 31.82521, lng: -116.599 }, // coodernadas del marcador 1
       icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
    });
    marker.setMap(map);
 
    // Marcador 2
    var marker2 = new google.maps.Marker({
-      position: { lat: -12.06444, lng: -77.12472 }, // coordenadas del marcador 2
+      position: { lat: 31.82435, lng: -116.5976 }, // coordenadas del marcador 2
       icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
    });
    marker2.setMap(map);

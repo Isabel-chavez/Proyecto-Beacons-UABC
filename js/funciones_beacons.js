@@ -40,12 +40,14 @@ jQuery(function($) {
             var longitud= $("#longitud").val();
             var finsta= $("#fechaInstalacion").val();
             var numPersonas= $("#numPerson").val();
+            var fecha=$("#fecha").val();
 
             var band1="";
             var band2="";
             var band3="";
             var band4="";
             var band5="";
+            var band6="";
             var resultado="";
 
 		   //Validamos el campo nombre, simplemente miramos que no esté vacío
@@ -104,16 +106,35 @@ jQuery(function($) {
 			    }
 		    }
 		      
-		     if (finsta == "") {
+		    if (finsta == "") {
 			  $("label#finsta_error").show();
 			  $("input#name").focus();
 			  band4="false";
 		    }else{
-		      $("label#finsta_error").hide();
-			  $("input#name").focus();
-			  band4="true";
+		      
 
-		    }
+			  var respuesta=validarFecha(finsta); 
+
+			  if(respuesta=="false"){
+                console.log("res:"+res);
+                 $("label#finsta_error").hide();
+                 $("label#finstala_error").show();
+			     $("input#name").focus();
+			     band4="false";
+			  }	else{
+			  	 
+			  	 $("label#finsta_error").hide();
+			  	 $("label#finstala_error").hide();
+			     $("input#name").focus();
+			      band4="true";
+			  	
+			  }
+
+
+
+		    } // end else
+
+		    
 
 		     if (numPersonas== "") {
 		      $("label#noesentero_error").hide();	
@@ -186,7 +207,29 @@ jQuery(function($) {
        }
          return band;
       }
-        
+      
+      /*
+      * se valida fecha: dd/mm/yyyy
+      */  
+      function validarFecha(fecha){
+      	
+  
+      var re =/^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/;
+    //var re = /^(?=\d)(?:(?:31(?!.(?:0?[2469]|11))|(?:30|29)(?!.0?2)|29(?=.0?2.(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(?:\x20|$))|(?:2[0-8]|1\d|0?[1-9]))([-.\/])(?:1[012]|0?[1-9])\1(?:1[6-9]|[2-9]\d)?\d\d(?:(?=\x20\d)\x20|$))?(((0?[1-9]|1[012])(:[0-5]\d){0,2}(\x20[AP]M))|([01]\d|2[0-3])(:[0-5]\d){1,2})?$/; 
+               
+
+       if (re.test(fecha)){
+          //alert ("Es valida la fecha");
+          band="true";
+        } else {
+         // alert ("No es valida la fecha");
+          band="false";
+          }
+          return band;
+       } // end function
+
+
+ 
       
        /*
        *  Se envian los datos a la base de datos para ser almacenados
@@ -213,10 +256,7 @@ jQuery(function($) {
 			success: function(result) {
 		    	
 		      	if(result==1){
-		     		// alert("Los datos fueron alamcenados correctamente::: "+result);
-		     		// alert("Los datos fueron alamcenados correctamente");
-		     		// $("#success-alert").show();
-		       		// console.log("se guardaron exitosamente los datos");  
+		     		
 		       		$("#Aviso-Exito").modal("show"); 
 
 		    	 }else{

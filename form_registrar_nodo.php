@@ -109,18 +109,19 @@
 											  <label class="control-label">Latitud </label>
 											  <input name="latitud" id="latitud" class="form-control" type="text">
 											  <label class="error uncolor" for="lat" id="lat_error">Debe introducir latitud .</label>
-											  <label class="error uncolor" for="latitud" id="latitud_error">Dato invalido, intente de nuevo</label><br>
+											  <label class="error uncolor" for="latitud" id="latitud_error">Error dato invalido, intente de nuevo</label><br>
 											</div>
 											<div class="form-group label-floating">
 											  <label class="control-label">Longitud</label>
 											  <input name="longitud" id="longitud" class="form-control" type="text">
-											  <label class="error " for="latitud" id="lon_error">Debe introducir longitud valida.</label><br>
+											  <label class="error uncolor" for="latitud" id="lon_error">Debe introducir longitud valida.</label><br>
 											</div>
 
 											<div class="form-group label-floating">
 											  <label class="control-label">Fecha de Instalación (dd/mm/yyy)</label>
 											  <input name="fechaInstalacion"  id="fechaInstalacion" class="form-control" type="text">
-											  <label class="error" for="finstalacion" id="finsta_error">Debe introducir longitud.</label><br>
+											  <label class="error" for="finstalacion" id="finsta_error">Debe introducir una fecha.</label>
+											  <label class="error" for="finstalacion" id="finstala_error">Error, la fecha es incorrecta intente de nuevo</label><br>
 											</div>
 											
 											
