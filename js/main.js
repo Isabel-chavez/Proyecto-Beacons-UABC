@@ -12,8 +12,8 @@ $(document).ready(function(){
 	});
 	$('.btn-exit-system').on('click', function(){
 		swal({
-		  	title: 'Are you sure?',
-		  	text: "The current session will be closed",
+		  	title: 'Esta seguro?',
+		  	text: "La sesión actual se cerrara",
 		  	type: 'warning',
 		  	showCancelButton: true,
 		  	confirmButtonColor: '#03A9F4',
@@ -67,6 +67,28 @@ $(document).ready(function(){
 		$('#Dialog-Help').modal('show');
 	});
 });
+$("#caja_nodos").click(function(e){
+		
+		    e.preventDefault();
+			window.location.href="form_registrar_nodo.php";	
+			
+});
+
+$("#caja_mapa").click(function(e){
+		
+		    e.preventDefault();
+			window.location.href="nodosenmapa.php";	
+			
+});
+
+$("#caja_estadistica").click(function(e){
+		
+		    e.preventDefault();
+			window.location.href="estadistica.php";	
+			
+});
+
+
 (function($){
     $(window).on("load",function(){
         $(".dashboard-sideBar-ct").mCustomScrollbar({

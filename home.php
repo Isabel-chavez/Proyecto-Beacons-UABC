@@ -93,7 +93,7 @@
 		</div>
 		<div class="full-box text-center" style="padding: 30px 10px;">
 			
-			<article class="full-box tile">
+			<article class="full-box tile" id="caja_nodos"> 
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Nodos
 				</div>
@@ -101,12 +101,12 @@
 				<div class="full-box tile-icon text-center">
 					<i class="zmdi zmdi-remote-control-alt"></i>
 				</div>
-				<div class="full-box tile-number text-titles" id="nodos_icon">
+				<div class="full-box tile-number text-titles">
 					<p class="full-box">10</p>
 					<small>Registros</small>
 				</div>
 			</article>
-			<article class="full-box tile">
+			<article class="full-box tile" id="caja_mapa">
 				<div class="full-box tile-title text-center text-titles text-uppercase">
 					Mapa
 				</div>
