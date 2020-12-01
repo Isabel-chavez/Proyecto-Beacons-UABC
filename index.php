@@ -1,3 +1,9 @@
+<?php
+ 
+ if (isset($_GET['e'])) {
+    echo "Esta variable está definida, así que se imprimirá";
+ } 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

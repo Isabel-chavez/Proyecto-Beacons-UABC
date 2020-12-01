@@ -1,3 +1,10 @@
+<?php
+ 
+ if (isset($_GET['rol'])) {
+ 	$rol=$_GET['rol'];  
+    // echo "rol=".$rol;
+ } 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -37,7 +44,10 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				
-				<?php include("menu.php"); ?>
+				<?php 
+                 if($rol=="admin"){
+				    include("menu.php");
+				?>
 				<li>
 					<a href="#!" class="btn-sideBar-SubMenu">
 						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
@@ -56,6 +66,7 @@
 				<li>
 					</ul>
 				</ul>
+			  <?php } ?>
 		</div>
 	</section>
 
@@ -91,6 +102,11 @@
 			  <h1 class="text-titles">Opciones del Sistema <small></small></h1>
 			</div>
 		</div>
+
+		<?php
+           if($rol=="admin"){ 
+
+		?>
 		<div class="full-box text-center" style="padding: 30px 10px;">
 			
 			<article class="full-box tile" id="caja_nodos"> 
@@ -131,7 +147,26 @@
 				</div>
 			</article>
 		</div>
+		<?php } else{?>
+         <div class="full-box text-center" style="padding: 30px 10px;">
+            <article class="full-box tile" id="caja_mapa">
+				<div class="full-box tile-title text-center text-titles text-uppercase">
+					Mapa
+				</div>
+				<div class="full-box tile-icon text-center">
+					<i class="zmdi zmdi-map"></i>
+				</div>
+				<div class="full-box tile-number text-titles">
+					<p class="full-box">70</p>
+					<small>Registros</small>
+				</div>
+			</article>
+
+
+         </div>
 		
+
+		<?php } ?>
 	</section>
 
 	<!-- Notifications area -->

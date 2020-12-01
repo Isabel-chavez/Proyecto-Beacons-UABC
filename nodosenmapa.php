@@ -1,3 +1,10 @@
+<?php
+ 
+ if (isset($_GET['rol'])) {
+ 	$rol=$_GET['rol'];  
+  
+ } 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,7 +31,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="./assets/img/logo_200x200.jpg" alt="UserIcon">
-					<figcaption class="text-center text-titles">Bienvenido Administrador</figcaption>
+					<figcaption class="text-center text-titles">Bienvenido <?php echo $rol;?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -42,11 +49,11 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				
-				  <?php include("menu.php"); ?>
-				<li>
-					</li>
-					</ul>
-				</li>
+				  <?php 
+                   if($rol=="admin"){
+				     include("menu.php");
+				   } ?>
+				    
 			</ul>
 		</div>
 	</section>
