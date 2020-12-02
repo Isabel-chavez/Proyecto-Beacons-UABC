@@ -87,7 +87,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Ejemplo Mapas</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Reportes</small></h1>
 			</div>
 			<form name="variable" method="">
 			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">
@@ -103,72 +103,14 @@
 						<div class="tab-pane fade active in" id="new">
 							<div class="container-fluid">
                                                           
-								<div class="row">
-									<div class="col-xs-6 col-md-6 col-md-offset-1"> <!-- action="main.php?op=GN&c=N" -->
-									    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1294.4995353366144!2d-116.59859849958761!3d31.82514134412711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d88e05317ad6f9%3A0x5b702d00918d406c!2sFacultad%20de%20Idiomas%20-%20Extensi%C3%B3n%20Ensenada!5e0!3m2!1ses!2smx!4v1606130935486!5m2!1ses!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+								<div class="row" id="ubicaciones">
+									<div class="col-xs-6 col-md-6"> <!-- action="main.php?op=GN&c=N" -->
+									    <img src="./assets/img/en_construccion.jpg">
 									</div>
 								</div>
 							</div>
 						</div>
-					  	<div class="tab-pane fade" id="list">
-							<div class="table-responsive">
-								<table class="table table-hover text-center">
-									<thead>
-										<tr>
-											<th class="text-center">#</th>
-											<th class="text-center">Code</th>
-											<th class="text-center">Name</th>
-											<th class="text-center">Status</th>
-											<th class="text-center">Update</th>
-											<th class="text-center">Delete</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td>1</td>
-											<td>100</td>
-											<td>Mathematics</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>2</td>
-											<td>500</td>
-											<td>Science</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>3</td>
-											<td>300</td>
-											<td>Social</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-										<tr>
-											<td>4</td>
-											<td>700</td>
-											<td>English</td>
-											<td>Active</td>
-											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
-											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
-										</tr>
-									</tbody>
-								</table>
-								<ul class="pagination pagination-sm">
-								  	<li class="disabled"><a href="#!">«</a></li>
-								  	<li class="active"><a href="#!">1</a></li>
-								  	<li><a href="#!">2</a></li>
-								  	<li><a href="#!">3</a></li>
-								  	<li><a href="#!">4</a></li>
-								  	<li><a href="#!">5</a></li>
-								  	<li><a href="#!">»</a></li>
-								</ul>
-							</div>
-					  	</div>
+					  
 					</div>
 				</div>
 			</div>
@@ -204,29 +146,7 @@
 				      	<p class="list-group-item-text">Muestra los ultimos nodos conectados.</p>
 				    </div>
 			  	</div>
-			  	<div class="list-group-separator"></div>
-				<div class="list-group-item">
-				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-help"></i>
-				    </div>
-				    <div class="row-content">
-				      	<div class="least-content">10m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
-				    </div>
-				</div>
-			  	<div class="list-group-separator"></div>
-			  	<div class="list-group-item">
-				    <div class="row-action-primary">
-				      	<i class="zmdi zmdi-info"></i>
-				    </div>
-				    <div class="row-content">
-				      	<div class="least-content">8m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Maecenas sed diam eget risus varius blandit.</p>
-				    </div>
-			  	</div>
-			</div>
+			  	
 
 		</div>
 	</section>
