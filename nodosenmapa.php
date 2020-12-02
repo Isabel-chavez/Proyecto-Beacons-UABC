@@ -89,6 +89,10 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Ejemplo Mapas</small></h1>
 			</div>
+			<form name="variable" method="">
+			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">
+
+			</form>
 			
 		</div>
 		<div class="container-fluid">

@@ -1,7 +1,7 @@
 <?php
  
  if (isset($_GET['e'])) {
-    echo "Esta variable está definida, así que se imprimirá";
+    echo "Intente de nuevo datos incorrectos";
  } 
 ?>
 <!DOCTYPE html>

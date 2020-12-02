@@ -1,7 +1,14 @@
+<?php
+ 
+ if (isset($_GET['rol'])) {
+ 	$rol=$_GET['rol'];  
+    // echo "rol=".$rol;
+ } 
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Seccion Nodos</title>
+	<title>Sección Nodos</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	 <link rel="stylesheet" href="./css/main.css">
@@ -88,8 +95,8 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	<li class="active"><a href="#new" data-toggle="tab">Nuevo Nodo</a></li>
-					  	<li><a href="#list" data-toggle="tab">Lista de nodos</a></li>
+					  	<li class="active"><a href="form_registrar_nodo.php?rol=admin" data-toggle="tab">Nuevo Nodo</a></li>
+					  	<!-- <li><a href="#list" data-toggle="tab">Lista de nodos</a></li> -->
 					</ul>
 					<div id="myTabContent" class="tab-content">
 						<div class="tab-pane fade active in" id="new">

@@ -2,16 +2,21 @@
  
  if (isset($_GET['rol'])) {
  	$rol=$_GET['rol'];  
-    // echo "rol=".$rol;
+  
  } 
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-	<title>Inicio</title>
+	<title>Seccion Estadisticas</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" href="./css/main.css">
+	 <link rel="stylesheet" href="./css/main.css">
+	 <link rel="stylesheet" href="./css/beacons.css">
+<!--	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.min.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>
+-->
+  
 </head>
 <body>
 	<!-- SideBar -->
@@ -25,8 +30,8 @@
 			<!-- SideBar User info -->
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
-					<img src="./assets/img/logo_200x200.jpg" alt="">
-					<figcaption class="text-center text-titles">Usuario</figcaption>
+					<img src="./assets/img/logo_200x200.jpg" alt="UserIcon">
+					<figcaption class="text-center text-titles">Bienvenido <?php echo $rol;?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -44,29 +49,12 @@
 			<!-- SideBar Menu -->
 			<ul class="list-unstyled full-box dashboard-sideBar-Menu">
 				
-				<?php 
-                 if($rol=="admin"){
-				    include("menu.php");
-				?>
-				<!--<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="#"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Administrar</a>
-						</li>
-						<li>
-						<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Ayuda</a>
-						</li>
-					</ul>
-				</li>-->
-				
-		
-				<li>
-					</ul>
-				</ul>
-			  <?php } ?>
+				  <?php 
+                   if($rol=="admin"){
+				     include("menu.php");
+				   } ?>
+				    
+			</ul>
 		</div>
 	</section>
 
@@ -81,7 +69,7 @@
 				<li>
 					<a href="#!" class="btn-Notifications-area">
 						<i class="zmdi zmdi-notifications-none"></i>
-						<span class="badge">25</span>
+						<span class="badge">7</span>
 					</a>
 				</li>
 				<li>
@@ -99,79 +87,92 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles">Opciones del Sistema <small></small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Ejemplo Mapas</small></h1>
 			</div>
 			<form name="variable" method="">
 			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">
 
 			</form>
-		</div>
-
-		<?php
-		   
-           if($rol=="admin"){ 
-
-		?>
-		<div class="full-box text-center" style="padding: 30px 10px;">
 			
-			<article class="full-box tile" id="caja_nodos"> 
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					Nodos
-				</div>
-
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-remote-control-alt"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">10</p>
-					<small>Registros</small>
-				</div>
-			</article>
-			<article class="full-box tile" id="caja_mapa">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					Mapa
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-map"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">70</p>
-					<small>Registros</small>
-				</div>
-			</article>
-			<article class="full-box tile" id="caja_estadistica">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					Estadísticas
-				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-time-interval"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">70</p>
-					<small>Registros</small>
-				</div>
-			</article>
 		</div>
-		<?php } else{?>
-         <div class="full-box text-center" style="padding: 30px 10px;">
-            <article class="full-box tile" id="caja_mapa">
-				<div class="full-box tile-title text-center text-titles text-uppercase">
-					Mapa
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12">
+					
+					<div id="myTabContent" class="tab-content">
+						<div class="tab-pane fade active in" id="new">
+							<div class="container-fluid">
+                                                          
+								<div class="row">
+									<div class="col-xs-6 col-md-6 col-md-offset-1"> <!-- action="main.php?op=GN&c=N" -->
+									    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1294.4995353366144!2d-116.59859849958761!3d31.82514134412711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80d88e05317ad6f9%3A0x5b702d00918d406c!2sFacultad%20de%20Idiomas%20-%20Extensi%C3%B3n%20Ensenada!5e0!3m2!1ses!2smx!4v1606130935486!5m2!1ses!2smx" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+									</div>
+								</div>
+							</div>
+						</div>
+					  	<div class="tab-pane fade" id="list">
+							<div class="table-responsive">
+								<table class="table table-hover text-center">
+									<thead>
+										<tr>
+											<th class="text-center">#</th>
+											<th class="text-center">Code</th>
+											<th class="text-center">Name</th>
+											<th class="text-center">Status</th>
+											<th class="text-center">Update</th>
+											<th class="text-center">Delete</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>1</td>
+											<td>100</td>
+											<td>Mathematics</td>
+											<td>Active</td>
+											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+										</tr>
+										<tr>
+											<td>2</td>
+											<td>500</td>
+											<td>Science</td>
+											<td>Active</td>
+											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+										</tr>
+										<tr>
+											<td>3</td>
+											<td>300</td>
+											<td>Social</td>
+											<td>Active</td>
+											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+										</tr>
+										<tr>
+											<td>4</td>
+											<td>700</td>
+											<td>English</td>
+											<td>Active</td>
+											<td><a href="#!" class="btn btn-success btn-raised btn-xs"><i class="zmdi zmdi-refresh"></i></a></td>
+											<td><a href="#!" class="btn btn-danger btn-raised btn-xs"><i class="zmdi zmdi-delete"></i></a></td>
+										</tr>
+									</tbody>
+								</table>
+								<ul class="pagination pagination-sm">
+								  	<li class="disabled"><a href="#!">«</a></li>
+								  	<li class="active"><a href="#!">1</a></li>
+								  	<li><a href="#!">2</a></li>
+								  	<li><a href="#!">3</a></li>
+								  	<li><a href="#!">4</a></li>
+								  	<li><a href="#!">5</a></li>
+								  	<li><a href="#!">»</a></li>
+								</ul>
+							</div>
+					  	</div>
+					</div>
 				</div>
-				<div class="full-box tile-icon text-center">
-					<i class="zmdi zmdi-map"></i>
-				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">70</p>
-					<small>Registros</small>
-				</div>
-			</article>
-
-
-         </div>
-		
-
-		<?php } ?>
+			</div>
+		</div>
 	</section>
 
 	<!-- Notifications area -->
@@ -189,7 +190,7 @@
 				    <div class="row-content">
 				      	<div class="least-content">17m</div>
 				      	<h4 class="list-group-item-heading">Agregados Recientemente</h4>
-				      	<p class="list-group-item-text">Despliega los nodos agregados recientemente.</p>
+				      	<p class="list-group-item-text">Muestra los Nodos Agregados Recientemente.</p>
 				    </div>
 			  	</div>
 			  	<div class="list-group-separator"></div>
@@ -199,8 +200,8 @@
 				    </div>
 				    <div class="row-content">
 				      	<div class="least-content">15m</div>
-				      	<h4 class="list-group-item-heading">Tile with a label</h4>
-				      	<p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus.</p>
+				      	<h4 class="list-group-item-heading">Ultima conexion</h4>
+				      	<p class="list-group-item-text">Muestra los ultimos nodos conectados.</p>
 				    </div>
 			  	</div>
 			  	<div class="list-group-separator"></div>
@@ -240,7 +241,7 @@
 			    </div>
 			    <div class="modal-body">
 			        <p>
-			        	ESTA ES LA VENTANA DE AVISO
+			        	Si requieres apoyo te puedes ir al menu de ayuda y llenar el formulario y en breve nos contactaremos contigo.
 			        </p>
 			    </div>
 		      	<div class="modal-footer">
@@ -257,6 +258,13 @@
 	<script src="./js/ripples.min.js"></script>
 	<script src="./js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="./js/main.js"></script>
+
+	<script src="./js/funciones_beacons.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.min.js"></script>  -->
+	<!-- <script src="./js/form-validation-beacons.js"></script>-->
+
 	<script>
 		$.material.init();
 	</script>

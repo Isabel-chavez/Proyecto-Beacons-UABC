@@ -70,21 +70,34 @@ $(document).ready(function(){
 $("#caja_nodos").click(function(e){
 		
 		    e.preventDefault();
-			window.location.href="form_registrar_nodo.php";	
+		    var name = $("#el_rol").val(); // alert("el rol::"+name);
+		    if(name=="admin")
+			 window.location.href="form_registrar_nodo.php?rol=admin";	
+			else
+             window.location.href="form_registrar_nodo.php?rol=visita";
 			
 });
 
 $("#caja_mapa").click(function(e){
 		
 		    e.preventDefault();
-			window.location.href="nodosenmapa.php";	
+		    var name = $("#el_rol").val(); // alert("el rol::"+name);
+		    if(name=="admin")
+			  window.location.href="nodosenmapa.php?rol=admin";	
+			else
+               window.location.href="nodosenmapa.php?rol=visita";	
 			
 });
 
 $("#caja_estadistica").click(function(e){
 		
 		    e.preventDefault();
-			window.location.href="estadisticas.html";	
+		    var name = $("#el_rol").val(); // alert("el rol::"+name);
+
+		    if(name=="admin")
+			  window.location.href="estadisticas.php?rol=admin";	
+			else
+			  window.location.href="estadisticas.php?rol=visita";
 			
 });
 
