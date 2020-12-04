@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://maps.googleapis.com/maps/api/jskey=AIzaSyCWQpkrVcmS74k-Ow6UnQzAiMn4FLQjZV4&callback=initMap&libraries=&v=weekly"defer></script>
+
+<script>
+function inicializar() {
+
+
+  var propiedades = {
+    center:new google.maps.LatLng(31.8052277,-105.8768468),
+    zoom:8,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+
+
+	/*
+    ROADMAP (normal, default 2D map)
+    SATELLITE (photographic map)
+    HYBRID (photographic map + roads and city names)
+    TERRAIN (map with mountains, rivers, etc.)
+   */
+	
+  }
+
+  var bc = { lat: 31.18, lng: -116.00 };
+  var bc_msg="Estoy en Baja California";
+  var bc_info="<b>Baja California</b>"+"<br><a href='http://www.google.com' target='_blank' >Web</a>"+"<p>Es el mejor lugar para vivir. Tiene una gran diversidad de flora, fauna y clima</p>";
+  var infowindowBC = new google.maps.InfoWindow({
+    content: bc_info
+  });
+
+  
+  
+  var son = { lat: 31.82521, lng:-116.599};  
+   var son_msg="Estoy en Sonora";
+     var son_info="<b>NOTA2</b>";
+     var infowindowSON = new google.maps.InfoWindow({
+    content: son_info
+  });
+   
+  var map=new google.maps.Map(document.getElementById("Mapa"),propiedades);
+  
+  var markerBC = new google.maps.Marker({
+    position: bc,
+	  title:bc_msg,
+    map: map
+  });
+  
+
+
+var markerSON = new google.maps.Marker({
+    position: son,
+	title:son_msg,
+    map: map
+  });
+  
+ 
+ markerBC.addListener('click', function() {
+    infowindowBC.open(map, markerBC);
+  });
+ 
+
+ markerSON.addListener('click', function() {
+    infowindowSON.open(map, markerSON);
+  });
+ 
+}
+
+
+
+
+
+google.maps.event.addDomListener(window, 'load', inicializar);
+</script>
+<title>Ejemplo2</title>
+</head>
+
+<body>
+<section id="Mapa" style="width:800px;height:600px;"></section>
+</body>
+
+</html> 
