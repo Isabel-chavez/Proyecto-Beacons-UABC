@@ -9,7 +9,7 @@
     <style type="text/css">
       /* Set the size of the div element that contains the map */
       #map {
-        height: 600px;
+        height:600px;
         /* The height is 400 pixels */
         width: 100%;
         /* The width is the width of the web page */
@@ -30,9 +30,12 @@
 
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 8,
+          zoom: 4,
           center: uluru,
         });
+
+        const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+
 
 
         // The marker, positioned at Uluru
@@ -40,6 +43,7 @@
           position: uluru,
           map: map,
           title:"NODO Auditorio UABC",
+          icon: image,
         });
 
         const markerBibioteca = new google.maps.Marker({
