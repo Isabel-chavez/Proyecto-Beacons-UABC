@@ -9,7 +9,7 @@
     <style type="text/css">
       /* Set the size of the div element that contains the map */
       #map {
-        height:525px;
+        height:600px;
         /* The height is 400 pixels */
         /* width: 100%; */
         /* The width is the width of the web page */
@@ -17,6 +17,9 @@
     </style>
 
     <style type = "text / css">
+   .titulo_ventana{
+     color:#005670; 
+   }
    .etiquetas {
      color rojo;
      color de fondo: blanco;
@@ -51,7 +54,7 @@
 
          const contenido_auditorio=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading">Beacon Auditorio</h1>' +
+          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Auditorio</h1>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82521 <br>" +
           "<b><br>Longitud:</b>-116.599<br>" +
@@ -74,7 +77,7 @@
 
            const contenido_biblioteca=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading">Beacon Biblioteca</h1>' +
+          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Biblioteca</h1>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82435 <br>" +  
           "<b><br>Longitud:</b>-116.5976<br>" +
@@ -95,7 +98,7 @@
 
            const contenido_cafeteria=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading">Beacon Cafetería 1</h1>' +
+          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 1</h1>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82416<br>" +  
           "<b><br>Longitud:</b>-116.5973<br>" +
@@ -114,7 +117,7 @@
            // NODO 4
            const contenido_cafeteria2=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading">Beacon Cafetería 2</h1>' +
+          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 2</h1>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud: 31.8241</b><br>" +  
           "<b><br>Longitud: -116.5975</b><br>" +
