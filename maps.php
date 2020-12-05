@@ -9,7 +9,7 @@
     <style type="text/css">
       /* Set the size of the div element that contains the map */
       #map {
-        height: 400px;
+        height: 600px;
         /* The height is 400 pixels */
         width: 100%;
         /* The width is the width of the web page */
@@ -25,7 +25,7 @@
 
         const ulcafeteriauno = { lat: 31.82416, lng: -116.5973};  
 
-        const ulcafeteriados = { lat: 31.82416, lng: -116.5973};  
+        const ulcafeteriados = { lat: 31.8241, lng: -116.5975};    
 
 
         // The map, centered at Uluru
