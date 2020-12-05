@@ -35,9 +35,9 @@
         });
 
          
-        const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+        // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
-
+        const image = "./assets/icons/20x32.png";
 
         // The marker, positioned at Uluru
         const markerAuditorio = new google.maps.Marker({
