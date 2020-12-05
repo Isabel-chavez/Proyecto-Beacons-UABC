@@ -17,7 +17,7 @@
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" href="./css/main.css">
 </head>
-<body class="cover" style="background-image: url(./assets/img/logo_200x200.jpg);"><!--loginFont.jpg-->
+<body class="cover" style="background-image: url(./assets/img/logo_400x400.jpg);"><!--loginFont.jpg-->
    <?php
     if (isset($_GET['e'])) {  ?>
     <div class="row">

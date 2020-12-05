@@ -58,7 +58,7 @@
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82521 <br>" +
           "<b><br>Longitud:</b>-116.599<br>" +
-          "<b><br>Cantidad máxima de personas:</b>20"+
+          "<b><br>Cantidad máxima de personas:</b>100"+
           "<b><br>Total de personas:</b>15" +
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
@@ -81,7 +81,7 @@
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82435 <br>" +  
           "<b><br>Longitud:</b>-116.5976<br>" +
-          "<b><br>Cantidad máxima de personas:</b>20"+
+          "<b><br>Cantidad máxima de personas:</b>80"+
           "<b><br>Total de personas:</b>15" +
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
@@ -102,7 +102,7 @@
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82416<br>" +  
           "<b><br>Longitud:</b>-116.5973<br>" +
-          "<b><br>Cantidad máxima de personas:</b>20"+
+          "<b><br>Cantidad máxima de personas:</b>40"+
           "<b><br>Total de personas:</b>10" +
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=3">Ver dispositivos:</a>' +
@@ -121,7 +121,7 @@
           '<div id="bodyContent">' +
           "<p><b>Latitud: 31.8241</b><br>" +  
           "<b><br>Longitud: -116.5975</b><br>" +
-          "<b><br>Cantidad máxima de personas: </b>20"+
+          "<b><br>Cantidad máxima de personas: </b>60"+
           "<b><br>Total de personas:</b>10" +
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=4">Ver dispositivos:</a>' +
