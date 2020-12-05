@@ -54,7 +54,7 @@
 
          const contenido_auditorio=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Auditorio</h1>' +
+          '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Auditorio</h2>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82521 <br>" +
           "<b><br>Longitud:</b>-116.599<br>" +
@@ -77,7 +77,7 @@
 
            const contenido_biblioteca=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Biblioteca</h1>' +
+          '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Biblioteca</h2>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82435 <br>" +  
           "<b><br>Longitud:</b>-116.5976<br>" +
@@ -98,7 +98,7 @@
 
            const contenido_cafeteria=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 1</h1>' +
+          '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 1</h2>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud:</b>31.82416<br>" +  
           "<b><br>Longitud:</b>-116.5973<br>" +
@@ -117,7 +117,7 @@
            // NODO 4
            const contenido_cafeteria2=
           '<div id="content">' +
-          '<h1 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 2</h1>' +
+          '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 2</h2>' +
           '<div id="bodyContent">' +
           "<p><b>Latitud: 31.8241</b><br>" +  
           "<b><br>Longitud: -116.5975</b><br>" +
