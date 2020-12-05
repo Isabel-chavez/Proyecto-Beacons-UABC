@@ -72,7 +72,7 @@
     </script>
   </head>
   <body>
-    <h3>Ubicaciones Google Maps de la UABC Valle Dorado Ensenada, B.C. México</h3>
+    <h3>UABC Valle Dorado Ensenada, B.C. México</h3>
     <!--The div element for the map -->
     <div id="map"></div>
   </body>
