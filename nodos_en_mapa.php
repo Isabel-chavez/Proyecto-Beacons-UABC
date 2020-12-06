@@ -5,93 +5,14 @@
   En este script se obtiene info de los nodos de la base de datos y se muestra los nodos en un mapa
 */
 
-
+require_once("funciones_nodos.php");
 
 $info_nodo1=getInfoNodo(1);  // print_r($info_nodo1);
 $info_nodo2=getInfoNodo(2);  // print_r($info_nodo2);
 $info_nodo3=getInfoNodo(3);  // print_r($info_nodo3);
 $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
 
-function determinarSemaforo($nodo_id){
-  
-  $color="";
-  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
-
-  $query=$mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
-  
-   while($fila=$query->fetch_assoc()){ 
-     $permitidos=$fila["cantidad_personas"];               // echo "<br>total personas permitidas:".$permitidos;
-   } 
-
- 
-   $total_dispositivos=getCantidadDispositivos($nodo_id);   // echo "<br>total dispositos: ".$total_dispositivos;
-   $mitad=round($permitidos/2);                             // echo "<br>la MITAD=$mitad";  
-
-
-    if(((int)$total_dispositivos>=(int)$permitidos)){
-       $color="rojo";                                       // echo "<br>es ROJO";
-    }else{
-      
-
-     if(((int)$total_dispositivos >=(int)$mitad)){
-            $color="amarillo";                              // echo "<br>es AMARILLO"; 
-       }else
-         {
-           $color="verde";                                  // echo "<br>es VERDE";
-         }
-
-    }
-  
-    return $color;
-} // end function
-
-function getInfoNodo($nodo_id){
-  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
-  $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
-  
-  while($fila=$query->fetch_assoc()){ 
-    $datos['nodo_id']=$fila["id"];                           // echo "<br>NODO:$id";
-    $datos['nombre']=$fila["nombre"];
-    $datos['lat']=$fila["lat"];
-    $datos['lon']=$fila["lon"];
-    $datos['f_instalacion']=$fila["fecha_instalacion"];
-    $datos['f_registro']=$fila["fecha_registro"];
-    $datos['permitidos']=$fila["cantidad_personas"];         // echo "<br>permitidos:$permitidos";
-    $lamitad=$fila["cantidad_personas"]/2;
-    $total_dispositivos=getCantidadDispositivos($nodo_id);   // echo "<br>TOTAL dispositivos conectados".$total_dispositivos;
-    $datos['total_dispositivos']=$total_dispositivos;
-    $datos['color']=determinarSemaforo($nodo_id);            // echo "<br>color:$color";
-    
-    
-   } //end while4
-
-   return $datos; 
-
-}
-
-
- /*
- * Se obtiene la cantidad de dispositivos conectados en un nodo en particular
-   parameto: nodo  //es el identificador del nodo
- */
- function getCantidadDispositivos($nodo){
-   
-  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
-
-  $resultado=$mysqli->query("SELECT count(conexion_id) as cant FROM conexiones_beacons  where estado_conexion='CONECTADO' AND nodo_id=$nodo");
-  
-  while($fila=$resultado->fetch_assoc()){ 
-    $tot_connectados=$fila["cant"];    
-   
-   }  
-   return $tot_connectados;
- }
-
 ?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -142,7 +63,7 @@ function getInfoNodo($nodo_id){
 
         // The map, centered el auditorio
         const map = new google.maps.Map(document.getElementById("map"), {
-          zoom: 18,
+          zoom: 17,
           center: ulauditorio,
         });
 
@@ -176,7 +97,7 @@ function getInfoNodo($nodo_id){
 
           const infowindow_nodo1 = new google.maps.InfoWindow({
             content:contenido_auditorio,
-            maxWidth:330,
+            maxWidth:290,
            });
 
           // nodo2
@@ -199,7 +120,7 @@ function getInfoNodo($nodo_id){
 
           const infowindow_nodo2 = new google.maps.InfoWindow({
             content:contenido_biblioteca,
-            maxWidth:300,
+            maxWidth:290,
            });
 
           // NODO 3
@@ -222,7 +143,7 @@ function getInfoNodo($nodo_id){
           
            const infowindow_nodo3 = new google.maps.InfoWindow({
             content:contenido_cafeteria,
-            maxWidth:300,
+            maxWidth:290,
            });
 
            // NODO 4
@@ -244,7 +165,7 @@ function getInfoNodo($nodo_id){
 
           const infowindow_nodo4= new google.maps.InfoWindow({
             content:contenido_cafeteria2,
-            maxWidth: 300,
+            maxWidth: 290,
            });
          
         /*
