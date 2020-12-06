@@ -1,3 +1,31 @@
+<?php
+
+
+ $total_nodo1=getCantidadDispositivos(1);  
+ $total_nodo2=getCantidadDispositivos(2); 
+ $total_nodo3=getCantidadDispositivos(3);   
+ $total_nodo4=getCantidadDispositivos(4);  
+
+ /*
+ * Se obtiene la cantidad de dispositivos conectados en un nodo en particular
+   parameto: nodo  //es el identificador del nodo
+ */
+ function getCantidadDispositivos($nodo){
+   
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
+
+  $resultado = $mysqli->query("SELECT count(conexion_id) as cant FROM conexiones_beacons  where estado_conexion='CONECTADO' AND nodo_id=$nodo");
+  
+  while($fila=$resultado->fetch_assoc()){ 
+    $tot_connectados=$fila["cant"];    
+   
+   }  
+   return $tot_connectados;
+ }
+
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -46,12 +74,15 @@
         const ulcafeteriados = { lat: 31.8241, lng: -116.5975};    
 
 
-        // The map, centered at Uluru
+        // The map, centered el auditorio
         const map = new google.maps.Map(document.getElementById("map"), {
           zoom: 18,
           center: ulauditorio,
         });
 
+         /*
+         *  SECCION  contendido que se mostrara en las ventanas de cada maker
+         */
          const contenido_auditorio=
           '<div id="content">' +
           '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Auditorio</h2>' +
@@ -59,7 +90,7 @@
           "<p><b>Latitud:</b>31.82521 <br>" +
           "<b><br>Longitud:</b>-116.599<br>" +
           "<b><br>Cantidad máxima de personas:</b>100"+
-          "<b><br>Total de personas:</b>15" +
+          "<b><br>Total de personas:</b>" +<?php echo $total_nodo1;?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -82,7 +113,7 @@
           "<p><b>Latitud:</b>31.82435 <br>" +  
           "<b><br>Longitud:</b>-116.5976<br>" +
           "<b><br>Cantidad máxima de personas:</b>80"+
-          "<b><br>Total de personas:</b>15" +
+          "<b><br>Total de personas:</b>" +<?php echo $total_nodo2;?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -103,7 +134,7 @@
           "<p><b>Latitud:</b>31.82416<br>" +  
           "<b><br>Longitud:</b>-116.5973<br>" +
           "<b><br>Cantidad máxima de personas:</b>40"+
-          "<b><br>Total de personas:</b>10" +
+          "<b><br>Total de personas:</b>" +<?php echo $total_nodo3;?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=3">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -122,7 +153,7 @@
           "<p><b>Latitud: 31.8241</b><br>" +  
           "<b><br>Longitud: -116.5975</b><br>" +
           "<b><br>Cantidad máxima de personas: </b>60"+
-          "<b><br>Total de personas:</b>10" +
+          "<b><br>Total de personas:</b>" +<?php echo $total_nodo4;?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=4">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -134,11 +165,15 @@
             maxWidth: 300,
            });
          
+        /*
+        *   TERMINA SECCION del contenido de que se muestra en los popup
+        */
+
         // const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
 
         const image = "./assets/icons/40x40.png";
 
-        // The marker, positioned at Uluru
+        // El marker, posicionado en nodo auditorio
         const markerAuditorio = new google.maps.Marker({
           position: ulauditorio,
           map: map,
@@ -187,8 +222,6 @@
         markerCafeteria2.addListener("click", () => {
           infowindow_nodo4.open(map,markerCafeteria2);
         });
-
-
 
      
 
