@@ -87,10 +87,11 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo1['total_dispositivos'];?>+
           /* "<b><br>Color semaforo: </b><?php echo $info_nodo1['color'];?>"+ */
           "</p>" +
-          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo1['color'];?>.png"></div></div></div>' +
-          '<br><p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
-          "<br><?php echo date('d/m/Y');?></p>"+
-          "</div>" +
+          '<div id="icono"><div class="row"><div class="col-md-5"><img src="./assets/icons/<?php echo $info_nodo1['color'];?>.png"></div><div class="col-md-7" style="display:none">'+
+          '<b>Nota:</b>Existe rango de error en la medición el valor es informativo no exacto</div></div></div>' +
+          /* '<br><p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' + */
+          /*  "<br><?php echo date('d/m/Y');?></p>"+ */
+          "<br></div>" +
           "</div>";
        
          <?php // } ?>
@@ -112,10 +113,12 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
           "<b><br>Total dispositivos:</b>"+<?php echo $info_nodo2['total_dispositivos'];?>+
           /* "<b><br>Color semaforo: </b><?php echo $info_nodo2['color'];?>"+ */
           "</p>" +
-          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo2['color'];?>.png"></div></div></div>' +
-          '<br><p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
-          "<br><?php echo date('d/m/Y');?></p>"+
-          "</div>" +
+          '<div id="icono"><div class="row"><div class="col-md-4"><img src="./assets/icons/<?php echo $info_nodo2['color'];?>.png"></div>'+
+          '<div class="col-md-8" style="display:none">'+
+          '<b>Nota:</b>Existe rango de error en la medición el valor es informativo no exacto</div></div></div>' +
+          /* '<br><p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' + */
+          /* "<br><?php echo date('d/m/Y');?></p>"+  */
+          "<br></div>" +
           "</div>";
 
           const infowindow_nodo2 = new google.maps.InfoWindow({
@@ -131,13 +134,14 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
           '<div id="bodyContent">' +
           "<p><b>Latitud: </b>"+<?php echo $info_nodo3['lat'];?>+
           "<b><br>Longitud:</b>"+<?php echo $info_nodo3['lon'];?>+
-          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo3['permitidos'];?>+
+          "<b><br>Cant. máxima de personas:</b>"+<?php echo $info_nodo3['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo3['total_dispositivos'];?>+
           /* "<b><br>Color semaforo: </b><?php echo $info_nodo3['color'];?>"+ */
           "</p>" +       
-          "</div>" +'<div id="icono"><div class="row"><div class="col-md-12" aling="center"><img src="./assets/icons/<?php echo $info_nodo3['color'];?>.png"></div></div></div>' +
-          '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
-          "<br><?php echo date('d/m/Y');?></p>"+
+          '<div id="icono"><div class="row"><div class="col-md-4"><img src="./assets/icons/<?php echo $info_nodo3['color'];?>.png"></div><div class="col-md-8" style="display:none"><b>Nota:</b>Existe rango de error en la medición el valor es informativo no exacto</div></div></div>' +
+          /* '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' + */
+          /*  "<br><?php echo date('d/m/Y');?></p>"+ */
+          "<br></div>" +
           "</div>";
 
           
@@ -153,14 +157,13 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
           '<div id="bodyContent">' +
           "<p><b>Latitud: </b>"+<?php echo $info_nodo4['lat'];?>+
           "<b><br>Longitud:</b>"+<?php echo $info_nodo4['lon'];?>+
-          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo4['permitidos'];?>+
+          "<b><br>Cant. máxima de personas:</b>"+<?php echo $info_nodo4['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo4['total_dispositivos'];?>+
           /* "<b><br>Color semaforo: </b><?php echo $info_nodo4['color'];?>"+ */
           "</p>" +
-          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo4['color'];?>.png"></div></div></div>' +
-          '<br><p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
-          "<br><?php echo date('d/m/Y');?></p>"+
-          "</div>" +
+          '<div id="icono"><div class="row"><div class="col-md-4"><img src="./assets/icons/<?php echo $info_nodo4['color'];?>.png"></div><div class="col-md-8" style="display:none"><b>Nota:</b>Existe rango de error en la medición el valor es informativo no exacto</div></div></div>' +
+          /* "<br><?php echo date('d/m/Y');?></p>"+  */
+          "<br></div>" +
           "</div>";
 
           const infowindow_nodo4= new google.maps.InfoWindow({
