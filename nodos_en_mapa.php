@@ -1,8 +1,14 @@
 <?php
+/*
+* nodos_en_mapa.php
+  Isabel Chavez
+  En este script se obtiene info de los nodos de la base de datos y se muestra los nodos en un mapa
+*/
 
-// $color_nodo1=determinarSemaforo(1);  echo "<br>color nodo1:$color_nodo1";
-$info_nodo1=getNodos(1);  print_r($info_nodo1);
-$info_nodo2=getNodos(2);  print_r($info_nodo2);
+$info_nodo1=getInfoNodo(1);  print_r($info_nodo1);
+$info_nodo2=getInfoNodo(2);  print_r($info_nodo2);
+$info_nodo3=getInfoNodo(3);  print_r($info_nodo3);
+$info_nodo4=getInfoNodo(4);  print_r($info_nodo4);
 
 
 function determinarSemaforo($nodo_id){
@@ -25,32 +31,30 @@ function determinarSemaforo($nodo_id){
     }
 } // end function
 
-function getNodos($nodo_id){
+function getInfoNodo($nodo_id){
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
   $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
   
   while($fila=$query->fetch_assoc()){ 
-    $datos['nodo_id']=$fila["id"];                                    // echo "<br>NODO:$id";
+    $datos['nodo_id']=$fila["id"];                           // echo "<br>NODO:$id";
     $datos['nombre']=$fila["nombre"];
     $datos['lat']=$fila["lat"];
     $datos['lon']=$fila["lon"];
     $datos['f_instalacion']=$fila["fecha_instalacion"];
     $datos['f_registro']=$fila["fecha_registro"];
-    $datos['permitidos']=$fila["cantidad_personas"];             // echo "<br>permitidos:$permitidos";
+    $datos['permitidos']=$fila["cantidad_personas"];         // echo "<br>permitidos:$permitidos";
     $lamitad=$fila["cantidad_personas"]/2;
     $total_dispositivos=getCantidadDispositivos($nodo_id);   // echo "<br>TOTAL dispositivos conectados".$total_dispositivos;
-
     $datos['total_dispositivos']=$total_dispositivos;
-
-   
-
-    $datos['color']=determinarSemaforo($nodo_id);      // echo "<br>color:$color";
+    $datos['color']=determinarSemaforo($nodo_id);            // echo "<br>color:$color";
     
     
-   } //end while
+   } //end while4
+
    return $datos; 
 
 }
+
 
  /*
  * Se obtiene la cantidad de dispositivos conectados en un nodo en particular
@@ -157,14 +161,14 @@ function getNodos($nodo_id){
 
           // nodo2
 
-           const contenido_biblioteca=
+          const contenido_biblioteca=
           '<div id="content">' +
           '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Biblioteca</h2>' +
           '<div id="bodyContent">' +
-          "<p><b>Latitud:</b>31.82435 <br>" +  
-          "<b><br>Longitud:</b>-116.5976<br>" +
-          "<b><br>Cantidad máxima de personas:</b>80"+
-          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(2);?>+
+          "<p><b>Latitud: </b>"+<?php echo $info_nodo2['lat'];?>+
+          "<b><br>Longitud:</b>"+<?php echo $info_nodo2['lon'];?>+
+          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo2['permitidos'];?>+
+          "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo2['total_dispositivos'];?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -178,20 +182,22 @@ function getNodos($nodo_id){
 
           // NODO 3
 
-           const contenido_cafeteria=
+          const contenido_cafeteria=
           '<div id="content">' +
           '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 1</h2>' +
           '<div id="bodyContent">' +
-          "<p><b>Latitud:</b>31.82416<br>" +  
-          "<b><br>Longitud:</b>-116.5973<br>" +
-          "<b><br>Cantidad máxima de personas:</b>40"+
-          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(3);?>+
+          "<p><b>Latitud: </b>"+<?php echo $info_nodo3['lat'];?>+
+          "<b><br>Longitud:</b>"+<?php echo $info_nodo3['lon'];?>+
+          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo3['permitidos'];?>+
+          "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo3['total_dispositivos'];?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=3">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
           "</div>" +
           "</div>";
-          const infowindow_nodo3 = new google.maps.InfoWindow({
+
+          
+           const infowindow_nodo3 = new google.maps.InfoWindow({
             content:contenido_cafeteria,
             maxWidth:300,
            });
@@ -201,10 +207,10 @@ function getNodos($nodo_id){
           '<div id="content">' +
           '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Cafetería 2</h2>' +
           '<div id="bodyContent">' +
-          "<p><b>Latitud: 31.8241</b><br>" +  
-          "<b><br>Longitud: -116.5975</b><br>" +
-          "<b><br>Cantidad máxima de personas: </b>60"+
-          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(4);?>+
+          "<p><b>Latitud: </b>"+<?php echo $info_nodo4['lat'];?>+
+          "<b><br>Longitud:</b>"+<?php echo $info_nodo4['lon'];?>+
+          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo4['permitidos'];?>+
+          "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo4['total_dispositivos'];?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=4">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
