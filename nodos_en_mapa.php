@@ -5,30 +5,63 @@
   En este script se obtiene info de los nodos de la base de datos y se muestra los nodos en un mapa
 */
 
-$info_nodo1=getInfoNodo(1);  print_r($info_nodo1);
-$info_nodo2=getInfoNodo(2);  print_r($info_nodo2);
-$info_nodo3=getInfoNodo(3);  print_r($info_nodo3);
-$info_nodo4=getInfoNodo(4);  print_r($info_nodo4);
+$colornodo1=determinarSemaforo(1); // echo "colornodo1:$colores";
+$colornodo2=determinarSemaforo(2);
+$colornodo3=determinarSemaforo(3);
+$colornodo4=determinarSemaforo(4);
 
+/*
+$info_nodo1=getInfoNodo(1);  // print_r($info_nodo1);
+$info_nodo2=getInfoNodo(2);  // print_r($info_nodo2);
+$info_nodo3=getInfoNodo(3);  // print_r($info_nodo3);
+$info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
+*/
+exit(1);
 
 function determinarSemaforo($nodo_id){
-  $color="";
+  //  $color="verde";
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
   $query= $mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
 
    while($fila=$query->fetch_assoc()){ 
-     $permitidos=$fila["cantidad_personas"];
+     $permitidos=$fila["cantidad_personas"];   echo "<br>total personas permitidas:".$permitidos;
    } 
 
-   $lamitad=$permitidos/2;
-   $total_dispositivos=getCantidadDispositivos($nodo_id); 
-    if($total_dispositivos<$permitidos){
-      return $color="verde";
-    }elseif($total_dispositivos>=$permitidos){
-       return $color="rojo";
-    }elseif($total_dispositivos<$lamitad){
-      return $color="amarillo";
+ 
+   $total_dispositivos=getCantidadDispositivos($nodo_id);   echo "<br>total dispositos: ".$total_dispositivos;
+   $mitad=round($total_dispositivos/2); echo "<br>la MITAD=$mitad";  // exit(1);
+
+
+    if(((int)$total_dispositivos>=(int)$permitidos)){
+       $color="rojo";  echo "<br>es ROJO";
+    }else{
+      
+
+     if(((int)$total_dispositivos < (int)$mitad)){
+            $color="amarillo";     echo "<br>es AMARILLO"; 
+       }else
+         {
+           $color="verde";         echo "<br>es VERDE";
+         }
+
+      return $color;
+
     }
+
+/*
+    if($total_dispositivos<$permitidos){
+       $mitad=$total_dispositivos/2; echo "la MITAD"+$mitad;  // exit(1);
+
+       if($total_dispositivos < $mitad){
+            $color="amarillo";     echo "es AMARILLO"; 
+       }else
+         {
+           $color="verde";         echo "es VERDE";
+         }
+    }
+ */   
+   
+    return $color;
 } // end function
 
 function getInfoNodo($nodo_id){
@@ -146,6 +179,7 @@ function getInfoNodo($nodo_id){
           "<b><br>Longitud:</b>"+<?php echo $info_nodo1['lon'];?>+
           "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo1['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo1['total_dispositivos'];?>+
+          "<b><br>Color semaforo: </b>"+ <?php echo determinarSemaforo(1);?> +
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
