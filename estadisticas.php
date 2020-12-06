@@ -87,7 +87,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Reportes</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-chart zmdi-hc-fw"></i> Administración <small>Reportes</small></h1>
 			</div>
 			<form name="variable" method="">
 			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">

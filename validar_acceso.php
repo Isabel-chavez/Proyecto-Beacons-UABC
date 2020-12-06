@@ -17,11 +17,12 @@
    }	
 
   
-    $arr=(explode("@",$correo)); print_r($arr); exit(1);
+    $arr=(explode("@",$correo)); 
+    $nombre=$arr[0]; echo $nuser; 
  
      if($cantidad_registros>=1){
 	   // echo "<br><br><b>Son correctos los datos!!!!</b>";     
-        header("Location: home.php?rol=$rol");      
+        header("Location: home.php?rol=$rol&user=$nombre");      
      }else{
        // echo "<br>Datos Incorrectos!!";
        header("Location: index.php?e=0");

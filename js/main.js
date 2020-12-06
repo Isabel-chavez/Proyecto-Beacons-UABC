@@ -70,32 +70,33 @@ $(document).ready(function(){
 $("#caja_nodos").click(function(e){
 		
 		    e.preventDefault();
-		    var name = $("#el_rol").val(); // alert("el rol::"+name);
-		    if(name=="admin")
-			 window.location.href="form_registrar_nodo.php?rol=admin";	
-			else
-             window.location.href="form_registrar_nodo.php?rol=visita";
+		    var rol = $("#el_rol").val(); // alert("el rol::"+rol);
+		    var nombre = $("#user").val();
+		    if(rol=="admin"){
+			  window.location.href="form_registrar_nodo.php?rol=admin&user="+nombre;	
+			}
 			
 });
 
 $("#caja_mapa").click(function(e){
 		
 		    e.preventDefault();
-		    var name = $("#el_rol").val(); // alert("el rol::"+name);
-		    if(name=="admin"){
-			  window.location.href="nodosenmapa.php?rol=admin";	
+		    var rol = $("#el_rol").val(); 
+            var nombre = $("#user").val();
+		    if(rol=="admin"){
+			  window.location.href="nodosenmapa.php?rol=admin&user="+nombre;	
 			}else{
-              window.location.href="mapa_nodos_visita.php?rol=visita";	
+              window.location.href="mapa_nodos_visita.php?rol=visita&user="+nombre;	
 			}
 });
 
 $("#caja_estadistica").click(function(e){
 		
 		    e.preventDefault();
-		    var name = $("#el_rol").val(); // alert("el rol::"+name);
-
-		    if(name=="admin")
-			  window.location.href="estadisticas.php?rol=admin";				
+		    var rol = $("#el_rol").val(); // alert("el rol::"+name);
+            var nombre = $("#user").val();
+		    if(rol=="admin")
+			  window.location.href="estadisticas.php?rol=admin&user="+nombre;				
 			
 });
 

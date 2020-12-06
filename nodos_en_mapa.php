@@ -237,7 +237,6 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
     </script>
   </head>
   <body>
-    <h3>UABC Valle Dorado Ensenada, B.C. México</h3>
     <!--The div element for the map -->
     <div id="map"></div>
   </body>

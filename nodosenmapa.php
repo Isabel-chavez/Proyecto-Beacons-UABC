@@ -2,7 +2,7 @@
  
  if (isset($_GET['rol'])) {
  	$rol=$_GET['rol'];  
-  
+    $nombre=$_GET['user'];
  } 
 ?>
 <!DOCTYPE html>
@@ -31,7 +31,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="./assets/img/logo_200x200.jpg" alt="UserIcon">
-					<figcaption class="text-center text-titles">Bienvenido <?php echo $rol;?></figcaption>
+					<figcaption class="text-center text-titles">Bienvenido <?php echo $nombre;?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -87,11 +87,11 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Mapa</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-map zmdi-hc-fw"></i> Administración <small>UABC Valle Dorado, Unidad Ensenada, B.C. México</small></h1>
 			</div>
 			<form name="variable" method="">
 			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">
-
+               <input type="hidden" name="user" id="user" value="<?php echo $nombre;?>">
 			</form>
 			
 		</div>

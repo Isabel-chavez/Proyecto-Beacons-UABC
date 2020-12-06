@@ -2,8 +2,11 @@
  
  if (isset($_GET['rol'])) {
  	$rol=$_GET['rol'];  
-    // echo "rol=".$rol;
+ 	$nombre=$_GET['user'];
+   
  } 
+ // require_once();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -26,7 +29,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="./assets/img/logo_200x200.jpg" alt="">
-					<figcaption class="text-center text-titles">Usuario</figcaption>
+					<figcaption class="text-center text-titles">Bienvenido:<?php echo $nombre;?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -48,21 +51,7 @@
                  if($rol=="admin"){
 				    include("menu.php");
 				?>
-				<!--<li>
-					<a href="#!" class="btn-sideBar-SubMenu">
-						<i class="zmdi zmdi-account-add zmdi-hc-fw"></i> Usuarios <i class="zmdi zmdi-caret-down pull-right"></i>
-					</a>
-					<ul class="list-unstyled full-box">
-						<li>
-							<a href="#"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Administrar</a>
-						</li>
-						<li>
-						<a href="representative.html"><i class="zmdi zmdi-male-female zmdi-hc-fw"></i> Ayuda</a>
-						</li>
-					</ul>
-				</li>-->
 				
-		
 				<li>
 					</ul>
 				</ul>
@@ -103,6 +92,7 @@
 			</div>
 			<form name="variable" method="">
 			   <input type="hidden" name="el_rol" id="el_rol" value="<?php echo $rol;?>">
+			   <input type="hidden" name="user" id="user" value="<?php echo $nombre;?>">
 
 			</form>
 		</div>
@@ -122,8 +112,8 @@
 				<div class="full-box tile-icon text-center">
 					<i class="zmdi zmdi-remote-control-alt"></i>
 				</div>
-				<div class="full-box tile-number text-titles">
-					<p class="full-box">10</p>
+				<div class="full-box tile-number text-titles" style="display:block">
+					<p class="full-box">4</p>
 					<small>Registros</small>
 				</div>
 			</article>
@@ -136,7 +126,7 @@
 				</div>
 				<div class="full-box tile-number text-titles">
 					<p class="full-box">70</p>
-					<small>Registros</small>
+					<small>Dispositivos</small>
 				</div>
 			</article>
 			<article class="full-box tile" id="caja_estadistica">
@@ -146,7 +136,7 @@
 				<div class="full-box tile-icon text-center">
 					<i class="zmdi zmdi-time-interval"></i>
 				</div>
-				<div class="full-box tile-number text-titles">
+				<div class="full-box tile-number text-titles" style="display:none">
 					<p class="full-box">70</p>
 					<small>Registros</small>
 				</div>

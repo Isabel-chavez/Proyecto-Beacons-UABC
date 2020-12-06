@@ -2,6 +2,7 @@
  
  if (isset($_GET['rol'])) {
  	$rol=$_GET['rol'];  
+ 	$nombre=$_GET['user'];
     // echo "rol=".$rol;
  } 
 ?>
@@ -31,7 +32,7 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="./assets/img/logo_200x200.jpg" alt="UserIcon">
-					<figcaption class="text-center text-titles">Bienvenido Administrador</figcaption>
+					<figcaption class="text-center text-titles">Bienvenido:<?php echo $nombre;?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>
@@ -87,7 +88,7 @@
 		<!-- Content page -->
 		<div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Administración <small>Nodos</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book zmdi-hc-fw"></i> Administración <small>Nodos</small></h1>
 			</div>
 			
 		</div>
@@ -95,7 +96,7 @@
 			<div class="row">
 				<div class="col-xs-12">
 					<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					  	<li class="active"><a href="form_registrar_nodo.php?rol=admin" data-toggle="tab">Nuevo Nodo</a></li>
+					  	<li class="active"><a href="form_registrar_nodo.php?rol=admin&user=<?php echo $nombre;?>" data-toggle="tab">Nuevo Nodo</a></li>
 					  	<!-- <li><a href="#list" data-toggle="tab">Lista de nodos</a></li> -->
 					</ul>
 					<div id="myTabContent" class="tab-content">
