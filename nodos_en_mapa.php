@@ -1,9 +1,12 @@
 <?php
 
-$color_nodo1=determinarSemaforo(1);  echo "<br>color nodo1:$color_nodo1";
-$nodos=getNodos(); print_r($nodos);
+// $color_nodo1=determinarSemaforo(1);  echo "<br>color nodo1:$color_nodo1";
+$info_nodo1=getNodos(1);  print_r($info_nodo1);
+$info_nodo2=getNodos(2);  print_r($info_nodo2);
+
 
 function determinarSemaforo($nodo_id){
+  $color="";
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
   $query= $mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
 
@@ -14,18 +17,17 @@ function determinarSemaforo($nodo_id){
    $lamitad=$permitidos/2;
    $total_dispositivos=getCantidadDispositivos($nodo_id); 
     if($total_dispositivos<$permitidos){
-      $color="verde";
-    }elseif($total_dispositivos>$permitidos){
-       $color="rojo";
+      return $color="verde";
+    }elseif($total_dispositivos>=$permitidos){
+       return $color="rojo";
     }elseif($total_dispositivos<$lamitad){
-       $color="amarillo";
+      return $color="amarillo";
     }
-    return $color;
+} // end function
 
-}
-function getNodos(){
+function getNodos($nodo_id){
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' "); 
+  $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
   
   while($fila=$query->fetch_assoc()){ 
     $datos['nodo_id']=$fila["id"];                                    // echo "<br>NODO:$id";
@@ -36,29 +38,19 @@ function getNodos(){
     $datos['f_registro']=$fila["fecha_registro"];
     $datos['permitidos']=$fila["cantidad_personas"];             // echo "<br>permitidos:$permitidos";
     $lamitad=$fila["cantidad_personas"]/2;
-    $total_dispositivos=getCantidadDispositivos($fila["id"]);   // echo "<br>TOTAL dispositivos conectados".$total_dispositivos;
+    $total_dispositivos=getCantidadDispositivos($nodo_id);   // echo "<br>TOTAL dispositivos conectados".$total_dispositivos;
 
     $datos['total_dispositivos']=$total_dispositivos;
-    if($total_dispositivos<$fila["cantidad_personas"]){
-      $color="verde";
-    }elseif($total_dispositivos>$fila["cantidad_personas"]){
-       $color="rojo";
-    }elseif($total_dispositivos<$lamitad){
-       $color="amarillo";
-    }
 
-    $datos['color']=$color;   echo "<br>color:$color";
+   
+
+    $datos['color']=determinarSemaforo($nodo_id);      // echo "<br>color:$color";
     
-    return $datos;
-   }  
+    
+   } //end while
+   return $datos; 
 
 }
-/*
- $total_nodo1=getCantidadDispositivos(1);  
- $total_nodo2=getCantidadDispositivos(2); 
- $total_nodo3=getCantidadDispositivos(3);   
- $total_nodo4=getCantidadDispositivos(4);  
- */
 
  /*
  * Se obtiene la cantidad de dispositivos conectados en un nodo en particular
@@ -137,21 +129,26 @@ function getNodos(){
          /*
          *  SECCION  contendido que se mostrara en las ventanas de cada maker
          */
+         
+         
          const contenido_auditorio=
+         <?php 
+         // $info_nodo1=getNodos(1); print_r($info_nodo1);
+         // for($i=0; $i<=count($info_nodo1);$i++){ ?>
           '<div id="content">' +
           '<h2 id="firstHeading" class="firstHeading titulo_ventana">Beacon Auditorio</h2>' +
           '<div id="bodyContent">' +
-          "<p><b>Latitud:</b>31.82521 <br>" +
-          "<b><br>Longitud:</b>-116.599<br>" +
-          "<b><br>Cantidad máxima de personas:</b>100"+
-          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(1);?>+
+          "<p><b>Latitud: </b>"+<?php echo $info_nodo1['lat'];?>+
+          "<b><br>Longitud:</b>"+<?php echo $info_nodo1['lon'];?>+
+          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo1['permitidos'];?>+
+          "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo1['total_dispositivos'];?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
           "</div>" +
           "</div>";
-
-         
+       
+         <?php // } ?>
 
           const infowindow_nodo1 = new google.maps.InfoWindow({
             content:contenido_auditorio,
