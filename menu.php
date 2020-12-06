@@ -10,7 +10,7 @@
 				  </a>
 			 </li>
 			  <li>
-				 <a href="#"><i class="zmdi zmdi-time-interval zmdi-hc-fw"></i> Estadísticas</a>
+				 <a href="estadisticas.php?rol=admin"><i class="zmdi zmdi-time-interval zmdi-hc-fw"></i> Estadísticas</a>
 			 </li>
 			<li>
 				<a href="form_registrar_nodo.php?rol=admin"><i class="zmdi zmdi-pin zmdi-hc-fw"></i> Nodos</a>

@@ -82,11 +82,11 @@ $("#caja_mapa").click(function(e){
 		
 		    e.preventDefault();
 		    var name = $("#el_rol").val(); // alert("el rol::"+name);
-		    if(name=="admin")
+		    if(name=="admin"){
 			  window.location.href="nodosenmapa.php?rol=admin";	
-			else
-               window.location.href="nodosenmapa.php?rol=visita";	
-			
+			}else{
+              window.location.href="mapa_nodos_visita.php?rol=visita";	
+			}
 });
 
 $("#caja_estadistica").click(function(e){
@@ -95,9 +95,7 @@ $("#caja_estadistica").click(function(e){
 		    var name = $("#el_rol").val(); // alert("el rol::"+name);
 
 		    if(name=="admin")
-			  window.location.href="estadisticas.php?rol=admin";	
-			else
-			  window.location.href="estadisticas.php?rol=visita";
+			  window.location.href="estadisticas.php?rol=admin";				
 			
 });
 

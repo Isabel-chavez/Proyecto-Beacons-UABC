@@ -15,10 +15,13 @@
    	$passwd=$fila["clave"];    // echo "<br>pass:".$passwd;
    	$rol=$fila["rol"];         //  "<br>rol:".$rol;
    }	
+
+  
+    $arr=(explode("@",$correo)); print_r($arr); exit(1);
  
      if($cantidad_registros>=1){
-	   // echo "<br><br><b>Son correctos los datos!!!!</b>";
-	   header("Location: home.php?rol=$rol");
+	   // echo "<br><br><b>Son correctos los datos!!!!</b>";     
+        header("Location: home.php?rol=$rol");      
      }else{
        // echo "<br>Datos Incorrectos!!";
        header("Location: index.php?e=0");
