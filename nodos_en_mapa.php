@@ -16,8 +16,8 @@ function determinarSemaforo($nodo_id){
   
   $color="";
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $query= $mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
-
+  // $query=$mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
+  $query=$mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
    while($fila=$query->fetch_assoc()){ 
      $permitidos=$fila["cantidad_personas"];               // echo "<br>total personas permitidas:".$permitidos;
    } 
@@ -46,8 +46,8 @@ function determinarSemaforo($nodo_id){
 
 function getInfoNodo($nodo_id){
   $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
-  
+  // $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
+  $query=$mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
   while($fila=$query->fetch_assoc()){ 
     $datos['nodo_id']=$fila["id"];                           // echo "<br>NODO:$id";
     $datos['nombre']=$fila["nombre"];
@@ -75,8 +75,8 @@ function getInfoNodo($nodo_id){
  */
  function getCantidadDispositivos($nodo){
    
-  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
+  // $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
 
   $resultado = $mysqli->query("SELECT count(conexion_id) as cant FROM conexiones_beacons  where estado_conexion='CONECTADO' AND nodo_id=$nodo");
   
