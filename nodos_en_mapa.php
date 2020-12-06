@@ -1,10 +1,64 @@
 <?php
 
+$color_nodo1=determinarSemaforo(1);  echo "<br>color nodo1:$color_nodo1";
+$nodos=getNodos(); print_r($nodos);
 
+function determinarSemaforo($nodo_id){
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  $query= $mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
+
+   while($fila=$query->fetch_assoc()){ 
+     $permitidos=$fila["cantidad_personas"];
+   } 
+
+   $lamitad=$permitidos/2;
+   $total_dispositivos=getCantidadDispositivos($nodo_id); 
+    if($total_dispositivos<$permitidos){
+      $color="verde";
+    }elseif($total_dispositivos>$permitidos){
+       $color="rojo";
+    }elseif($total_dispositivos<$lamitad){
+       $color="amarillo";
+    }
+    return $color;
+
+}
+function getNodos(){
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' "); 
+  
+  while($fila=$query->fetch_assoc()){ 
+    $datos['nodo_id']=$fila["id"];                                    // echo "<br>NODO:$id";
+    $datos['nombre']=$fila["nombre"];
+    $datos['lat']=$fila["lat"];
+    $datos['lon']=$fila["lon"];
+    $datos['f_instalacion']=$fila["fecha_instalacion"];
+    $datos['f_registro']=$fila["fecha_registro"];
+    $datos['permitidos']=$fila["cantidad_personas"];             // echo "<br>permitidos:$permitidos";
+    $lamitad=$fila["cantidad_personas"]/2;
+    $total_dispositivos=getCantidadDispositivos($fila["id"]);   // echo "<br>TOTAL dispositivos conectados".$total_dispositivos;
+
+    $datos['total_dispositivos']=$total_dispositivos;
+    if($total_dispositivos<$fila["cantidad_personas"]){
+      $color="verde";
+    }elseif($total_dispositivos>$fila["cantidad_personas"]){
+       $color="rojo";
+    }elseif($total_dispositivos<$lamitad){
+       $color="amarillo";
+    }
+
+    $datos['color']=$color;   echo "<br>color:$color";
+    
+    return $datos;
+   }  
+
+}
+/*
  $total_nodo1=getCantidadDispositivos(1);  
  $total_nodo2=getCantidadDispositivos(2); 
  $total_nodo3=getCantidadDispositivos(3);   
  $total_nodo4=getCantidadDispositivos(4);  
+ */
 
  /*
  * Se obtiene la cantidad de dispositivos conectados en un nodo en particular
@@ -90,7 +144,7 @@
           "<p><b>Latitud:</b>31.82521 <br>" +
           "<b><br>Longitud:</b>-116.599<br>" +
           "<b><br>Cantidad máxima de personas:</b>100"+
-          "<b><br>Total de personas:</b>" +<?php echo $total_nodo1;?>+
+          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(1);?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -113,7 +167,7 @@
           "<p><b>Latitud:</b>31.82435 <br>" +  
           "<b><br>Longitud:</b>-116.5976<br>" +
           "<b><br>Cantidad máxima de personas:</b>80"+
-          "<b><br>Total de personas:</b>" +<?php echo $total_nodo2;?>+
+          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(2);?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -134,7 +188,7 @@
           "<p><b>Latitud:</b>31.82416<br>" +  
           "<b><br>Longitud:</b>-116.5973<br>" +
           "<b><br>Cantidad máxima de personas:</b>40"+
-          "<b><br>Total de personas:</b>" +<?php echo $total_nodo3;?>+
+          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(3);?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=3">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
@@ -153,7 +207,7 @@
           "<p><b>Latitud: 31.8241</b><br>" +  
           "<b><br>Longitud: -116.5975</b><br>" +
           "<b><br>Cantidad máxima de personas: </b>60"+
-          "<b><br>Total de personas:</b>" +<?php echo $total_nodo4;?>+
+          "<b><br>Total de personas:</b>" +<?php echo getCantidadDispositivos(4);?>+
           "</p>" +
           '<p><a href="ver_dispositivos.php?nodo=4">Ver dispositivos:</a>' +
          "<br>(05 Diciembre 2020).</p>" +
