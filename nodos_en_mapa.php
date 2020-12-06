@@ -15,8 +15,8 @@ $info_nodo4=getInfoNodo(4);  // print_r($info_nodo4);
 function determinarSemaforo($nodo_id){
   
   $color="";
-  // $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
 
   $query=$mysqli->query("SELECT cantidad_personas FROM nodos where estado='Activo' AND id=$nodo_id"); 
   
@@ -47,8 +47,8 @@ function determinarSemaforo($nodo_id){
 } // end function
 
 function getInfoNodo($nodo_id){
-  // $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
   $query = $mysqli->query("SELECT * FROM nodos where estado='Activo' AND id=$nodo_id"); 
   
   while($fila=$query->fetch_assoc()){ 
@@ -78,8 +78,8 @@ function getInfoNodo($nodo_id){
  */
  function getCantidadDispositivos($nodo){
    
-  // $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
-  $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
+  $mysqli = new mysqli("localhost","chavez", "phoenix", "beacons");
+  // $mysqli = new mysqli("localhost","geoconst_ichavez", "Miclave2020","geoconst_beacons");
 
   $resultado=$mysqli->query("SELECT count(conexion_id) as cant FROM conexiones_beacons  where estado_conexion='CONECTADO' AND nodo_id=$nodo");
   
@@ -162,12 +162,13 @@ function getInfoNodo($nodo_id){
           '<div id="bodyContent">' +
           "<p><b>Latitud: </b>"+<?php echo $info_nodo1['lat'];?>+
           "<b><br>Longitud:</b>"+<?php echo $info_nodo1['lon'];?>+
-          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo1['permitidos'];?>+
+          "<b><br>Cant. máxima de personas:</b>"+<?php echo $info_nodo1['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo1['total_dispositivos'];?>+
-          "<b><br>Color semaforo: </b><?php echo $info_nodo1['color'];?>"+
+          /* "<b><br>Color semaforo: </b><?php echo $info_nodo1['color'];?>"+ */
           "</p>" +
-          '<p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
-         "<br>(05 Diciembre 2020).</p>" +
+          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo1['color'];?>.png"></div></div></div>' +
+          '<br><p><a href="ver_dispositivos.php?nodo=1">Ver dispositivos:</a>' +
+          "<br><?php echo date('d/m/Y');?></p>"+
           "</div>" +
           "</div>";
        
@@ -186,12 +187,13 @@ function getInfoNodo($nodo_id){
           '<div id="bodyContent">' +
           "<p><b>Latitud: </b>"+<?php echo $info_nodo2['lat'];?>+
           "<b><br>Longitud:</b>"+<?php echo $info_nodo2['lon'];?>+
-          "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo2['permitidos'];?>+
+          "<b><br>Cant. máxima de personas:</b>"+<?php echo $info_nodo2['permitidos'];?>+
           "<b><br>Total dispositivos:</b>"+<?php echo $info_nodo2['total_dispositivos'];?>+
-          "<b><br>Color semaforo: </b><?php echo $info_nodo2['color'];?>"+
+          /* "<b><br>Color semaforo: </b><?php echo $info_nodo2['color'];?>"+ */
           "</p>" +
-          '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
-          "<br>(05 Diciembre 2020).</p>" +
+          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo2['color'];?>.png"></div></div></div>' +
+          '<br><p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
+          "<br><?php echo date('d/m/Y');?></p>"+
           "</div>" +
           "</div>";
 
@@ -210,11 +212,11 @@ function getInfoNodo($nodo_id){
           "<b><br>Longitud:</b>"+<?php echo $info_nodo3['lon'];?>+
           "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo3['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo3['total_dispositivos'];?>+
-          "<b><br>Color semaforo: </b><?php echo $info_nodo3['color'];?>"+
-          "</p>" +
-          '<p><a href="ver_dispositivos.php?nodo=3">Ver dispositivos:</a>' +
-         "<br>(05 Diciembre 2020).</p>" +
-          "</div>" +
+          /* "<b><br>Color semaforo: </b><?php echo $info_nodo3['color'];?>"+ */
+          "</p>" +       
+          "</div>" +'<div id="icono"><div class="row"><div class="col-md-12" aling="center"><img src="./assets/icons/<?php echo $info_nodo3['color'];?>.png"></div></div></div>' +
+          '<p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
+          "<br><?php echo date('d/m/Y');?></p>"+
           "</div>";
 
           
@@ -232,10 +234,11 @@ function getInfoNodo($nodo_id){
           "<b><br>Longitud:</b>"+<?php echo $info_nodo4['lon'];?>+
           "<b><br>Cantidad máxima de personas:</b>"+<?php echo $info_nodo4['permitidos'];?>+
           "<b><br>Total dispositivos:</b>" +<?php echo $info_nodo4['total_dispositivos'];?>+
-          "<b><br>Color semaforo: </b><?php echo $info_nodo4['color'];?>"+
+          /* "<b><br>Color semaforo: </b><?php echo $info_nodo4['color'];?>"+ */
           "</p>" +
-          '<p><a href="ver_dispositivos.php?nodo=4">Ver dispositivos:</a>' +
-         "<br>(05 Diciembre 2020).</p>" +
+          '<div id="icono"><div class="row"><div class="col-md-12"><img src="./assets/icons/<?php echo $info_nodo4['color'];?>.png"></div></div></div>' +
+          '<br><p><a href="ver_dispositivos.php?nodo=2">Ver dispositivos:</a>' +
+          "<br><?php echo date('d/m/Y');?></p>"+
           "</div>" +
           "</div>";
 
